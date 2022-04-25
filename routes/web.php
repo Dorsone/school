@@ -33,3 +33,7 @@ Route::get('courses', function () {
 Route::get('blog', function () {
     return view('client.blog');
 });
+
+Route::get('blog/{blog}', function () {
+    return view('client.blog-single');
+});

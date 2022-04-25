@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             LevelSeeder::class,
             CourseSeeder::class,
+            StudentSeeder::class,
         ]);
     }
 }

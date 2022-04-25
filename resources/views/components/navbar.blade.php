@@ -1,11 +1,11 @@
 <div class="py-2 bg-primary">
     <div class="container">
         <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
-            <div class="col-lg-12 d-block">
+            <div class="col-lg-10 d-block">
                 <div class="row d-flex">
                     <div class="col-md-5 pr-4 d-flex topper align-items-center">
                         <div class="icon bg-fifth mr-2 d-flex justify-content-center align-items-center"><span class="icon-map"></span></div>
-                        <span class="text">198 West 21th Street, Suite 721 New York NY 10016</span>
+                        <span class="text">198 West 21th Street, Suite 721 New York NY</span>
                     </div>
                     <div class="col-md pr-4 d-flex topper align-items-center">
                         <div class="icon bg-secondary mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
@@ -16,6 +16,13 @@
                         <span class="text">+ 1235 2355 98</span>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-2 d-block">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="javascript:void(0)"><img title="O`zbekcha" src="{{asset('images/uz.png')}}" alt="uz"></a></li>
+                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="javascript:void(0)"><img title="Русский" src="{{asset('images/ru.png')}}" alt="ru"></a></li>
+                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="javascript:void(0)"><img title="English" width="16" src="{{asset('images/en.png')}}" alt="en"></a></li>
+                </ul>
             </div>
         </div>
     </div>

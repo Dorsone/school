@@ -37,3 +37,7 @@ Route::get('blog', function () {
 Route::get('blog/{blog}', function () {
     return view('client.blog-single');
 });
+
+Route::get('contact', function () {
+    return view('client.contact');
+});

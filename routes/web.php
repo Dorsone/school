@@ -25,3 +25,7 @@ Route::get('about-us', function () {
 Route::get('teachers', function () {
     return view('client.teachers');
 });
+
+Route::get('courses', function () {
+    return view('client.courses');
+});

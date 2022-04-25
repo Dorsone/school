@@ -32,7 +32,6 @@
                 <li class="nav-item"><a href="javascript:void(0)" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Teacher</a></li>
                 <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Courses</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Pricing</a></li>
                 <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Contact</a></li>
             </ul>

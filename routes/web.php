@@ -29,3 +29,7 @@ Route::get('teachers', function () {
 Route::get('courses', function () {
     return view('client.courses');
 });
+
+Route::get('blog', function () {
+    return view('client.blog');
+});

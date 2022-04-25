@@ -20,7 +20,7 @@ class CreateLevelsTable extends Migration
             $table->string('name_en');
             $table->time('from_time');
             $table->time('to_time');
-            $table->integer('status')->default(1);
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

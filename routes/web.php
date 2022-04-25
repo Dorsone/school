@@ -21,3 +21,7 @@ Route::get('', function (){
 Route::get('about-us', function () {
    return view('client.about-us');
 });
+
+Route::get('teachers', function () {
+    return view('client.teachers');
+});

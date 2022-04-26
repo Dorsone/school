@@ -18,6 +18,7 @@ class CreateLevelsTable extends Migration
             $table->string('name_uz');
             $table->string('name_ru');
             $table->string('name_en');
+            $table->integer('teacher_id');
             $table->time('from_time');
             $table->time('to_time');
             $table->boolean('status')->default(true);

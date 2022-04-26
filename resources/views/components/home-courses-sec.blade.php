@@ -7,38 +7,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image: url({{asset("images/course-1.jpg")}});"></div>
-                <div class="text bg-light p-4">
-                    <h3><a href="#">Arts Lesson</a></h3>
-                    <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+            @foreach($courses as $course)
+                <div class="col-md-6 course d-lg-flex ftco-animate">
+                    <div class="img" style="background-image: url({{$course->image}});"></div>
+                    <div class="text bg-light p-4">
+                        <h3><a href="#">{{$course->title_en}}</a></h3>
+                        <p class="subheading"><span>Class time:</span> {{substr($course->from_time,0,-3)}} - {{substr($course->to_time,0,-3)}}</p>
+                        <p>{{$course->description_en}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image: url({{asset("images/course-2.jpg")}});"></div>
-                <div class="text bg-light p-4">
-                    <h3><a href="#">Language Lesson</a></h3>
-                    <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
-                </div>
-            </div>
-            <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image: url({{asset("images/course-3.jpg")}});"></div>
-                <div class="text bg-light p-4">
-                    <h3><a href="#">Music Lesson</a></h3>
-                    <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
-                </div>
-            </div>
-            <div class="col-md-6 course d-lg-flex ftco-animate">
-                <div class="img" style="background-image: url({{asset("images/course-4.jpg")}});"></div>
-                <div class="text bg-light p-4">
-                    <h3><a href="#">Sports Lesson</a></h3>
-                    <p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

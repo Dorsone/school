@@ -14,10 +14,10 @@
                             <div class="img align-self-stretch" style="background-image: url({{asset($teacher->image)}});"></div>
                         </div>
                         <div class="text pt-3 text-center">
-                            <h3>{{$teacher->name_en}}</h3>
-                            <span class="position mb-2">{{$teacher->role_en}}</span>
+                            <h3>{{$teacher['name_'.app()->getLocale()]}}</h3>
+                            <span class="position mb-2">{{$teacher['role_'.app()->getLocale()]}}</span>
                             <div class="faded">
-                                <p>{{$teacher->description_en}}</p>
+                                <p>{{$teacher['description_'.app()->getLocale()]}}</p>
                                 <ul class="ftco-social text-center">
                                     <li class="ftco-animate"><a href="{{$teacher->twitter}}"><span class="icon-twitter"></span></a></li>
                                     <li class="ftco-animate"><a href="{{$teacher->facebook}}"><span class="icon-facebook"></span></a></li>

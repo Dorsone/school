@@ -18,12 +18,12 @@
                             </div>
                         </a>
                         <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="#">{{$article->title_preview_en}}</a></h3>
-                            <p style="min-height: 100px">{{$article->content_preview_en}}</p>
+                            <h3 class="heading"><a href="#">{{$article['title_preview_'.app()->getLocale()]}}</a></h3>
+                            <p style="min-height: 10px">{{$article['content_preview_'.app()->getLocale()]}}</p>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="#" class="btn btn-secondary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                <p class="mb-0"><a href="#" class="btn btn-secondary">{{__('sections/blog.read')}} <span class="ion-ios-arrow-round-forward"></span></a></p>
                                 <p class="ml-auto mb-0">
-                                    <a href="#" class="mr-2">{{$article->user->name_en}}</a>
+                                    <a href="#" class="mr-2">{{$article->user['name_'.app()->getLocale()]}}</a>
                                 </p>
                             </div>
                         </div>

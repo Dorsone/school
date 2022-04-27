@@ -11,9 +11,9 @@
                 <div class="col-md-6 course d-lg-flex ftco-animate">
                     <div class="img" style="background-image: url({{asset($course->image)}});"></div>
                     <div class="text bg-light p-4">
-                        <h3><a href="#">{{$course->title_en}}</a></h3>
+                        <h3><a href="#">{{$course['title_'.app()->getLocale()]}}</a></h3>
                         <p class="subheading"><span>Class time:</span> {{substr($course->from_time,0,-3)}} - {{substr($course->to_time,0,-3)}}</p>
-                        <p>{{$course->description_en}}</p>
+                        <p>{{$course['description_'.app()->getLocale()]}}</p>
                     </div>
                 </div>
             @endforeach

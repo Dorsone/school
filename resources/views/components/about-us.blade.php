@@ -3,15 +3,14 @@
         <div class="row">
             <div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
                 <div class="text px-4 ftco-animate">
-                    <h2 class="mb-4">Welcome to Kiddos Learning School</h2>
-                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word.</p>
-                    <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. And if she hasn’t been rewritten, then they are still using her.</p>
+                    <h2 class="mb-4">{{__('about-us.Welcome_TO.title')}}</h2>
+                    <p>{{__('about-us.Welcome_TO.body')}}</p>
                     <p><a href="#" class="btn btn-secondary px-4 py-3">Read More</a></p>
                 </div>
             </div>
             <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
-                <h2 class="mb-4">What We Offer</h2>
-                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word.</p>
+                <h2 class="mb-4">{{__('about-us.What_We.title')}}</h2>
+                <p>{{__('about-us.What_We.body')}}</p>
                 <div class="row mt-5">
                     <div class="col-lg-6">
                         <div class="services-2 d-flex">

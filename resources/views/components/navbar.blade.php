@@ -19,9 +19,9 @@
             </div>
             <div class="col-lg-2 d-block">
                 <ul class="list-inline mb-0">
-                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="javascript:void(0)"><img title="O`zbekcha" src="{{asset('images/uz.png')}}" alt="uz"></a></li>
-                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="javascript:void(0)"><img title="Русский" src="{{asset('images/ru.png')}}" alt="ru"></a></li>
-                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="javascript:void(0)"><img title="English" width="16" src="{{asset('images/en.png')}}" alt="en"></a></li>
+                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="{{route('lang', 'uz')}}"><img title="O`zbekcha" src="{{asset('images/uz.png')}}" alt="uz"></a></li>
+                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="{{route('lang', 'ru')}}"><img title="Русский" src="{{asset('images/ru.png')}}" alt="ru"></a></li>
+                    <li class="list-inline-item mr-0 p-md-3 p-2"><a href="{{route('lang', 'en')}}"><img title="English" width="16" src="{{asset('images/en.png')}}" alt="en"></a></li>
                 </ul>
             </div>
         </div>
@@ -35,12 +35,12 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="" class="nav-link pl-0">Home</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Teacher</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Courses</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Contact</a></li>
+                <li class="nav-item active"><a href="" class="nav-link pl-0">{{__('navbar.Home')}}</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.About')}}</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.Teacher')}}</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.Courses')}}</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.Blog')}}</a></li>
+                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.Contact')}}</a></li>
             </ul>
         </div>
     </div>

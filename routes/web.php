@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\HomeController;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use App\Http\Controllers\Client\HomeController;
 Route::get('', [HomeController::class, 'index']);
 
 Route::get('about-us', function () {
-   return view('client.about-us');
+    return view('client.about-us');
 });
 
 Route::get('teachers', function () {
@@ -40,3 +41,5 @@ Route::get('blog/{blog}', function () {
 Route::get('contact', function () {
     return view('client.contact');
 });
+
+Route::get('lang/{lang}', [HomeController::class, 'lang'])->name('lang');

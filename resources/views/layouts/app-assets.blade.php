@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="{{app()->getLocale()}}">
 <head>
     <title>@yield('title', '41-maktab Qiziltepa Navoiy')</title>
     <meta charset="utf-8">

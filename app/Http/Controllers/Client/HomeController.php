@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Course;
 use App\Models\Teacher;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,5 +18,16 @@ class HomeController extends Controller
         $articles = Article::query()->latest('created_at')->take(3)->get();
 
         return view('client.index', compact('teachers', 'courses', 'articles'));
+    }
+
+    /**
+     * @param $lang
+     * @return RedirectResponse
+     */
+    public function lang($lang): RedirectResponse
+    {
+        $lang = in_array($lang, ['uz', 'ru', 'en']) ? $lang : 'uz';
+        session()->put(['lang' => $lang]);
+        return back();
     }
 }

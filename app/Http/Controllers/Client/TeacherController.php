@@ -12,7 +12,7 @@ class TeacherController extends Controller
     public function index()
     {
         $teachers = Teacher::query()->paginate(6);
-        $articles = Article::query()->latest('created_at')->take(2)->get();
-        return view('client.teachers', compact('teachers', 'articles'));
+        $footer_articles = Article::query()->latest('created_at')->take(2)->get();
+        return view('client.teachers', compact('teachers', 'footer_articles'));
     }
 }

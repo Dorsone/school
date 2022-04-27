@@ -18,8 +18,8 @@ class HomeController extends Controller
         $courses = Course::query()->latest('created_at')->take(4)->get();
         $articles = Article::query()->latest('created_at')->take(3)->get();
         $reviews = Reviews::query()->inRandomOrder()->take(5)->get();
-
-        return view('client.index', compact('teachers', 'courses', 'articles', 'reviews'));
+        $footer_articles = $articles->take(2);
+        return view('client.index', compact('teachers', 'courses', 'articles', 'reviews', 'footer_articles'));
     }
 
     /**

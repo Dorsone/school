@@ -12,7 +12,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::query()->paginate(6);
-        $articles = Article::query()->latest('created_at')->take(2)->get();
-        return view('client.courses', compact('courses', 'articles'));
+        $footer_articles = Article::query()->latest('created_at')->take(2)->get();
+        return view('client.courses', compact('courses', 'footer_articles'));
     }
 }

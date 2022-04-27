@@ -29,18 +29,18 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
     <div class="container d-flex align-items-center">
-        <a class="navbar-brand" href="javascript:void(0)">Kiddos</a>
+        <a class="navbar-brand" href="{{route('index')}}">Kiddos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
+            <span class="oi oi-menu"></span>
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="" class="nav-link pl-0">{{__('navbar.Home')}}</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.About')}}</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.Teacher')}}</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.Courses')}}</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.Blog')}}</a></li>
-                <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{__('navbar.Contact')}}</a></li>
+                <li class="nav-item @if(url()->current() == route('index')) active @endif"><a href="{{route('index')}}" class="nav-link pl-0">{{__('navbar.Home')}}</a></li>
+                <li class="nav-item @if(url()->current() == route('about-us.index')) active @endif"><a href="{{route('about-us.index')}}" class="nav-link">{{__('navbar.About')}}</a></li>
+                <li class="nav-item @if(url()->current() == route('teachers.index')) active @endif"><a href="{{route('teachers.index')}}" class="nav-link">{{__('navbar.Teacher')}}</a></li>
+                <li class="nav-item @if(url()->current() == route('courses.index')) active @endif"><a href="{{route('courses.index')}}" class="nav-link">{{__('navbar.Courses')}}</a></li>
+                <li class="nav-item @if(url()->current() == route('blog.index')) active @endif"><a href="{{route('blog.index')}}" class="nav-link">{{__('navbar.Blog')}}</a></li>
+                <li class="nav-item @if(url()->current() == route('contact.index')) active @endif"><a href="{{route('contact.index')}}" class="nav-link">{{__('navbar.Contact')}}</a></li>
             </ul>
         </div>
     </div>

@@ -42,6 +42,7 @@ Route::group([
     'as' => 'courses.'
 ], function () {
     Route::get('', [CourseController::class, 'index'])->name('index');
+    Route::get('{course}', [CourseController::class, 'show'])->name('show');
 });
 
 Route::group([

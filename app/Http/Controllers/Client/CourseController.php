@@ -15,4 +15,10 @@ class CourseController extends Controller
         $footer_articles = Article::query()->latest('created_at')->take(2)->get();
         return view('client.courses', compact('courses', 'footer_articles'));
     }
+
+    public function show(Course $course)
+    {
+        $footer_articles = Article::query()->latest('created_at')->take(2)->get();
+        return view('client.courses-single', compact('footer_articles', 'course'));
+    }
 }

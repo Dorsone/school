@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Client\AboutController;
+use App\Http\Controllers\Client\BlogController;
+use App\Http\Controllers\Client\ContactController;
+use App\Http\Controllers\Client\CourseController;
+use App\Http\Controllers\Client\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\HomeController;
-use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,26 +21,40 @@ use Illuminate\Support\Facades\Session;
 
 
 Route::get('', [HomeController::class, 'index']);
-Route::get('about-us', [AboutController::class, 'index']);
-
-Route::get('teachers', function () {
-    return view('client.teachers');
-});
-
-Route::get('courses', function () {
-    return view('client.courses');
-});
-
-Route::get('blog', function () {
-    return view('client.blog');
-});
-
-Route::get('blog/{blog}', function () {
-    return view('client.blog-single');
-});
-
-Route::get('contact', function () {
-    return view('client.contact');
-});
-
 Route::get('lang/{lang}', [HomeController::class, 'lang'])->name('lang');
+
+Route::group([
+    'prefix' => 'about-us',
+    'as' => 'about-us.'
+], function () {
+    Route::get('', [AboutController::class, 'index'])->name('index');
+});
+
+Route::group([
+    'prefix' => 'teachers',
+    'as' => 'teachers.'
+], function () {
+    Route::get('', [TeacherController::class, 'index'])->name('index');
+});
+
+Route::group([
+    'prefix' => 'courses',
+    'as' => 'courses.'
+], function () {
+    Route::get('', [CourseController::class, 'index'])->name('index');
+});
+
+Route::group([
+    'prefix' => 'blog',
+    'as' => 'blog.'
+], function () {
+    Route::get('', [BlogController::class, 'index'])->name('index');
+    Route::get('{article}', [BlogController::class, 'show'])->name('show');
+});
+
+Route::group([
+    'prefix' => 'contact',
+    'as' => 'contact.'
+], function () {
+    Route::get('', [ContactController::class, 'index'])->name('index');
+});

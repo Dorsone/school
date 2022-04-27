@@ -2,91 +2,33 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
-                <h2 class="mb-4"><span>Certified</span> Teachers</h2>
-                <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                <h2 class="mb-4"><span>{{__('sections/teacher.title.0')}}</span> {{__('sections/teacher.title.1')}}</h2>
+                <p>{{__('sections/teacher.body')}}</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="staff">
-                    <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch" style="background-image: url({{asset("images/teacher-1.jpg")}});"></div>
-                    </div>
-                    <div class="text pt-3 text-center">
-                        <h3>Bianca Wilson</h3>
-                        <span class="position mb-2">Teacher</span>
-                        <div class="faded">
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                            <ul class="ftco-social text-center">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
+            @foreach($teachers as $teacher)
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="staff">
+                        <div class="img-wrap d-flex align-items-stretch">
+                            <div class="img align-self-stretch" style="background-image: url({{asset($teacher->image)}});"></div>
+                        </div>
+                        <div class="text pt-3 text-center">
+                            <h3>{{$teacher['name_'.app()->getLocale()]}}</h3>
+                            <span class="position mb-2">{{$teacher['role_'.app()->getLocale()]}}</span>
+                            <div class="faded">
+                                <p>{{$teacher['description_'.app()->getLocale()]}}</p>
+                                <ul class="ftco-social text-center">
+                                    <li class="ftco-animate"><a href="{{$teacher->twitter}}"><span class="icon-twitter"></span></a></li>
+                                    <li class="ftco-animate"><a href="{{$teacher->facebook}}"><span class="icon-facebook"></span></a></li>
+                                    <li class="ftco-animate"><a href="{{$teacher->telegram}}"><span class="icon-google-plus"></span></a></li>
+                                    <li class="ftco-animate"><a href="{{$teacher->instagram}}"><span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="staff">
-                    <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch" style="background-image: url({{asset("images/teacher-2.jpg")}});"></div>
-                    </div>
-                    <div class="text pt-3 text-center">
-                        <h3>Mitch Parker</h3>
-                        <span class="position mb-2">English Teacher</span>
-                        <div class="faded">
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                            <ul class="ftco-social text-center">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="staff">
-                    <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch" style="background-image: url({{asset("images/teacher-3.jpg")}});"></div>
-                    </div>
-                    <div class="text pt-3 text-center">
-                        <h3>Stella Smith</h3>
-                        <span class="position mb-2">Art Teacher</span>
-                        <div class="faded">
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                            <ul class="ftco-social text-center">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="staff">
-                    <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch" style="background-image: url({{asset("images/teacher-4.jpg")}});"></div>
-                    </div>
-                    <div class="text pt-3 text-center">
-                        <h3>Monshe Henderson</h3>
-                        <span class="position mb-2">Science Teacher</span>
-                        <div class="faded">
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                            <ul class="ftco-social text-center">
-                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

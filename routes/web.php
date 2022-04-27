@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Client\AboutController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Client\HomeController;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('', function (){
-    return view('client.index');
-});
-
-Route::get('about-us', function () {
-   return view('client.about-us');
-});
+Route::get('', [HomeController::class, 'index']);
+Route::get('about-us', [AboutController::class, 'index']);
 
 Route::get('teachers', function () {
     return view('client.teachers');
@@ -41,3 +39,5 @@ Route::get('blog/{blog}', function () {
 Route::get('contact', function () {
     return view('client.contact');
 });
+
+Route::get('lang/{lang}', [HomeController::class, 'lang'])->name('lang');

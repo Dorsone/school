@@ -1,0 +1,6 @@
+<?php
+
+return [
+    'title' => "Teaching Your Child Some Good Manners",
+    'body' => "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
+];

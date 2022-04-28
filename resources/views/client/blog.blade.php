@@ -1,8 +1,16 @@
 @extends('layouts.app-assets')
 
-@section('content')
-    @include('components.bread-crumbs')
+@section('bread-crumbs-title')
+    {{__('navbar.Blog')}}
+@endsection
 
+@section('bread-crumbs-body')
+    <span class="mr-2">
+        {{__('navbar.Blog')}} <i class="ion-ios-arrow-forward"></i>
+    </span>
+@endsection
+
+@section('content')
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row">

@@ -10,7 +10,6 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $footer_articles = Article::query()->latest()->take(2)->get();
-        return view('client.contact', compact('footer_articles'));
+        return view('client.contact');
     }
 }

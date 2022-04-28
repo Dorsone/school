@@ -24,6 +24,11 @@
 <!-- NavBar -->
 @include('components.navbar')
 
+<!-- BreadCrumbs -->
+@if(url()->current() != route('index'))
+@include('components.bread-crumbs')
+@endif
+
 <!-- Content -->
 @yield('content')
 

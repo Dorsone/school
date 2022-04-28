@@ -28,6 +28,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('components.navbar', NavbarComposer::class);
+        View::composer('components.footer', NavbarComposer::class);
         View::composer('components.footer', FooterComposer::class);
         View::composer('components.home-experience', HomeBodyComposer::class);
         View::composer('client.contact', NavbarComposer::class);

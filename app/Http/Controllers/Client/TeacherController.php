@@ -11,7 +11,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::query()->paginate(6);
+        $teachers = Teacher::query()->paginate(8);
         $footer_articles = Article::query()->latest('created_at')->take(2)->get();
         return view('client.teachers', compact('teachers', 'footer_articles'));
     }

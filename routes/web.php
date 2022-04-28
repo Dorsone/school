@@ -21,6 +21,7 @@ use App\Http\Controllers\Client\HomeController;
 
 
 Route::get('', [HomeController::class, 'index'])->name('index');
+Route::post('store/review', [HomeController::class, 'storeReview'])->name('store.review');
 Route::get('lang/{lang}', [HomeController::class, 'lang'])->name('lang');
 
 Route::group([

@@ -3,20 +3,44 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
 use App\Models\Course;
-use Illuminate\Http\Request;
+use App\Services\CourseService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class CourseController extends Controller
 {
-    public function index()
+
+    /**
+     * @var CourseService
+     */
+    protected $courseService;
+
+    /**
+     * @param CourseService $courseService
+     */
+    public function __construct(CourseService $courseService)
     {
-        $courses = Course::query()->paginate(6);
-        return view('client.courses', compact('courses'));
+        $this->courseService = $courseService;
     }
 
+    /**
+     * @return Application|Factory|View
+     */
+    public function index()
+    {
+        $data = $this->courseService->index();
+        return view('client.courses', $data);
+    }
+
+    /**
+     * @param Course $course
+     * @return Application|Factory|View
+     */
     public function show(Course $course)
     {
-        return view('client.courses-single', compact('course'));
+        $data = $this->courseService->show($course);
+        return view('client.courses-single', $data);
     }
 }

@@ -4,19 +4,42 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
-use Illuminate\Http\Request;
+use App\Services\BlogServices;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class BlogController extends Controller
 {
-    public function index()
+    /**
+     * @var BlogServices
+     */
+    protected $blogServices;
+
+    /**
+     * @param BlogServices $blogServices
+     */
+    public function __construct(BlogServices $blogServices)
     {
-        $articles = Article::query()->paginate(6);
-        return view('client.blog', compact('articles'));
+        $this->blogServices = $blogServices;
     }
 
+    /**
+     * @return Application|Factory|View
+     */
+    public function index()
+    {
+        $data = $this->blogServices->index();
+        return view('client.blog', $data);
+    }
+
+    /**
+     * @param Article $article
+     * @return Application|Factory|View
+     */
     public function show(Article $article)
     {
-        $popular = Article::query()->inRandomOrder()->take(3)->get();
-        return view('client.blog-single', compact('popular','article'));
+        $data = $this->blogServices->show($article);
+        return view('client.blog-single', $data);
     }
 }

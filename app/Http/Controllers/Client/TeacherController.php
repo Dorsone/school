@@ -3,15 +3,32 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
-use App\Models\Teacher;
-use Illuminate\Http\Request;
+use App\Services\TeacherServices;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class TeacherController extends Controller
 {
+    /**
+     * @var TeacherServices
+     */
+    protected $teacherServices;
+
+    /**
+     * @param TeacherServices $teacherServices
+     */
+    public function __construct(TeacherServices $teacherServices)
+    {
+        $this->teacherServices = $teacherServices;
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
     public function index()
     {
-        $teachers = Teacher::query()->paginate(8);
-        return view('client.teachers', compact('teachers'));
+        $data = $this->teacherServices->index();
+        return view('client.teachers', $data);
     }
 }

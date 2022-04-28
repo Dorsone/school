@@ -1,7 +1,16 @@
 @extends('layouts.app-assets')
 
+@section('bread-crumbs-title')
+    {{__('navbar.Contact')}}
+@endsection
+
+@section('bread-crumbs-body')
+    <span>
+        {{__('navbar.Contact')}} <i class="ion-ios-arrow-forward"></i>
+    </span>
+@endsection
+
 @section('content')
-    @include('components.bread-crumbs')
     <section class="ftco-section contact-section">
         <div class="container">
             <div class="row d-flex mb-5 contact-info">

@@ -1,7 +1,19 @@
 @extends('layouts.app-assets')
 
+@section('bread-crumbs-title')
+    {{__('navbar.Blog')}}
+@endsection
+
+@section('bread-crumbs-body')
+    <span>
+       <a href="{{route('blog.index')}}"> {{__('navbar.Blog')}} <i class="ion-ios-arrow-forward"></i></a>
+    </span>
+    <span>
+        {{$article['title_preview_'.app()->getLocale()]}} <i class="ion-ios-arrow-forward"></i>
+    </span>
+@endsection
+
 @section('content')
-    @include('components.bread-crumbs')
     <section class="ftco-section">
         <div class="container">
             <div class="row">

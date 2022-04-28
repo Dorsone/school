@@ -3,16 +3,32 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
-use App\Models\Reviews;
-use App\Models\Setting;
-use Illuminate\Http\Request;
+use App\Services\AboutServices;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class AboutController extends Controller
 {
+    /**
+     * @var AboutServices
+     */
+    protected $aboutServices;
+
+    /**
+     * @param AboutServices $aboutServices
+     */
+    public function __construct(AboutServices $aboutServices)
+    {
+        $this->aboutServices = $aboutServices;
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
     public function index()
     {
-        $reviews = Reviews::query()->inRandomOrder()->take(5)->get();
-        return view('client.about-us', compact('reviews'));
+        $data = $this->aboutServices->index();
+        return view('client.about-us', $data);
     }
 }

@@ -20,10 +20,7 @@ class HomeServices
             'teachers' => Teacher::query()->inRandomOrder()->take(4)->get(),
             'courses' => Course::query()->latest('created_at')->take(4)->get(),
             'articles' => Article::query()->latest('created_at')->take(3)->get(),
-            'footer_articles' => Cache::get('articlesFooter'),
-            'experiences' => Cache::get('experience'),
             'reviews' => Reviews::query()->inRandomOrder()->take(5)->get(),
-            'contacts' => Cache::get('contacts'),
         ];
     }
 

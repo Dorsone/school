@@ -16,25 +16,25 @@
             <div class="row d-flex mb-5 contact-info">
                 <div class="col-md-3 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
-                        <h3 class="mb-4">Address</h3>
+                        <h3 class="mb-4">{{__('contacts.Address')}}</h3>
                         <p>{{$contacts->where('name', 'address')->first()->value}}</p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
-                        <h3 class="mb-4">Contact Number</h3>
+                        <h3 class="mb-4">{{__('contacts.Contact')}}</h3>
                         <p><a href="tel://{{$contacts->where('name', 'phone')->first()->value}}">{{$contacts->where('name', 'phone')->first()->value}}</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
-                        <h3 class="mb-4">Email Address</h3>
+                        <h3 class="mb-4">{{__('contacts.Email')}}</h3>
                         <p><a href="mailto:{{$contacts->where('name', 'email')->first()->value}}">{{$contacts->where('name', 'email')->first()->value}}</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="bg-light align-self-stretch box p-4 text-center">
-                        <h3 class="mb-4">Website</h3>
+                        <h3 class="mb-4">{{__('contacts.Website')}}</h3>
                         <p><a href="{{route('index')}}">{{$contacts->where('name', 'web_site')->first()->value}}</a></p>
                     </div>
                 </div>

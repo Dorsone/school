@@ -7,6 +7,7 @@ use App\Http\Requests\ReviewRequest;
 use App\Models\Article;
 use App\Models\Course;
 use App\Models\Reviews;
+use App\Models\Setting;
 use App\Models\Teacher;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -25,7 +26,8 @@ class HomeController extends Controller
         $articles = Article::query()->latest('created_at')->take(3)->get();
         $reviews = Reviews::query()->inRandomOrder()->take(5)->get();
         $footer_articles = $articles->take(2);
-        return view('client.index', compact('teachers', 'courses', 'articles', 'reviews', 'footer_articles'));
+        $experiences = Setting::where('section', 'experience')->get();
+        return view('client.index', compact('teachers', 'courses', 'articles', 'reviews', 'footer_articles', 'experiences'));
     }
 
     public function storeReview(ReviewRequest $reviewRequest)

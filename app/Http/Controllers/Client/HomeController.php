@@ -32,16 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = $this->homeServices->index();
-        return view('client.index', [
-            'teachers' => $data['teachers'],
-            'courses' => $data['courses'],
-            'articles' => $data['articles'],
-            'footer_articles' => $data['footer_articles'],
-            'experiences' => $data['experiences'],
-            'reviews' => $data['reviews'],
-            'contacts' => $data['contacts'],
-        ]);
+        return view('client.index', $this->homeServices->index());
     }
 
     /**

@@ -12,13 +12,11 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::query()->paginate(6);
-        $footer_articles = Article::query()->latest('created_at')->take(2)->get();
-        return view('client.courses', compact('courses', 'footer_articles'));
+        return view('client.courses', compact('courses'));
     }
 
     public function show(Course $course)
     {
-        $footer_articles = Article::query()->latest('created_at')->take(2)->get();
-        return view('client.courses-single', compact('footer_articles', 'course'));
+        return view('client.courses-single', compact('course'));
     }
 }

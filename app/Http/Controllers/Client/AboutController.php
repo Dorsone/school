@@ -12,9 +12,7 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $experiences = Setting::where('section', 'experience')->get();
         $reviews = Reviews::query()->inRandomOrder()->take(5)->get();
-        $footer_articles = Article::query()->latest('created_at')->take(2)->get();
-        return view('client.about-us', compact('reviews', 'footer_articles', 'experiences'));
+        return view('client.about-us', compact('reviews'));
     }
 }

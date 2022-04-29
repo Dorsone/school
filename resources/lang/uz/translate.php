@@ -14,4 +14,6 @@ return [
     'October' => 'Oktyabr',
     'November' => 'Noyabr',
     'December' => 'Dekabr',
+    'mother' => 'Ona',
+    'father' => 'Ota'
 ];

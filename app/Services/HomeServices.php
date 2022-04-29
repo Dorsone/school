@@ -7,7 +7,6 @@ use App\Models\Course;
 use App\Models\Reviews;
 use App\Models\Teacher;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Cache;
 
 class HomeServices
 {
@@ -20,13 +19,18 @@ class HomeServices
             'teachers' => Teacher::query()->inRandomOrder()->take(4)->get(),
             'courses' => Course::query()->latest('created_at')->take(4)->get(),
             'articles' => Article::query()->latest('created_at')->take(3)->get(),
-            'reviews' => Reviews::query()->inRandomOrder()->take(5)->get(),
+            'reviews' => Reviews::query()->inRandomOrder()->where('status', 1)->take(5)->get(),
         ];
     }
 
-    public function storeReview($validated)
+    /**
+     * @param $validated
+     * @return RedirectResponse
+     */
+    public function storeReview($validated): RedirectResponse
     {
-        dd($validated);
+        Reviews::query()->create($validated);
+        return back();
     }
 
     /**

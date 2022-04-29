@@ -12,7 +12,7 @@
                     @foreach($reviews as $key => $review)
                         <div class="item">
                             <div class="testimony-wrap d-flex">
-                                <div class="user-img mr-4" style="background-image: url({{asset("images/teacher-".($key+1).".jpg")}})">
+                                <div class="user-img mr-4" style="background-image: url({{asset("images/".$review->role.".png")}})">
                                 </div>
                                 <div class="text ml-2 bg-light">
                                     <span class="quote d-flex align-items-center justify-content-center">
@@ -20,7 +20,7 @@
                                     </span>
                                     <p>{{$review->message}}</p>
                                     <p class="name">{{$review->first_name}} {{$review->last_name}}</p>
-                                    <span class="position">Mother</span>
+                                    <span class="position">{{__('translate.'.$review->role)}}</span>
                                 </div>
                             </div>
                         </div>

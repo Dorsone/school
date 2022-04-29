@@ -22,7 +22,7 @@
                             <div class="text">
                                 <h3 class="heading"><a href="{{route('blog.show', $article->id)}}">{{$article['title_preview_'.app()->getLocale()]}}</a></h3>
                                 <div class="meta">
-                                    <div><a href="{{route('blog.show', $article->id)}}"><span class="icon-calendar"></span> {{$article->created_at->format('M d, Y')}}</a></div>
+                                    <div><a href="{{route('blog.show', $article->id)}}"><span class="icon-calendar"></span> {{__('translate.'.$article->created_at->format('F'))}} {{$article->created_at->format('d, Y')}}</a></div>
                                     <div><a href="{{route('blog.show', $article->id)}}"><span class="icon-person"></span> {{$article->user['name_'.app()->getLocale()]}}</a></div>
                                 </div>
                             </div>

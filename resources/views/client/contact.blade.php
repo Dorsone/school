@@ -45,18 +45,19 @@
         <div class="container">
             <div class="row d-flex align-items-stretch no-gutters">
                 <div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
-                    <form action="#">
+                    <form action="{{route('contact.store.message')}}" method="POST">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{__('send-message.name')}}">
+                            <input type="text" name="name" class="form-control" placeholder="{{__('send-message.name')}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{__('send-message.email')}}">
+                            <input type="text" name="phone" class="form-control" placeholder="{{__('send-message.phone')}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{__('send-message.subject')}}">
+                            <input type="text" class="form-control" name="subject" placeholder="{{__('send-message.subject')}}">
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="{{__('send-message.message')}}"></textarea>
+                            <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="{{__('send-message.message')}}"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="{{__('send-message.send')}}" class="btn btn-primary py-3 px-5">

@@ -59,4 +59,5 @@ Route::group([
     'as' => 'contact.'
 ], function () {
     Route::get('', [ContactController::class, 'index'])->name('index');
+    Route::post('store/message', [ContactController::class, 'storeMessage'])->name('store.message');
 });

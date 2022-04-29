@@ -2,7 +2,7 @@
 
 return [
     'name' => 'Ismingiz',
-    'email' => 'Elektron pochtangiz',
+    'phone' => 'Tel. raqam',
     'subject' => 'Xabar mavzusi',
     'message' => 'Xabaringizni kiriting',
     'send' => "Xabarni jo'natish"

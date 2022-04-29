@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\Message;
+
 class ContactServices
 {
     /**
@@ -10,6 +12,12 @@ class ContactServices
     public function index()
     {
         //
+    }
+
+    public function storeMessage($validated)
+    {
+        Message::query()->create($validated);
+        return back();
     }
 
 }

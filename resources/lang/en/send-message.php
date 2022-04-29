@@ -2,7 +2,7 @@
 
 return [
     'name' => 'Your name',
-    'email' => 'Your email',
+    'email' => 'Your phone',
     'subject' => 'Subject',
     'message' => 'Message',
     'send' => "Send Message"

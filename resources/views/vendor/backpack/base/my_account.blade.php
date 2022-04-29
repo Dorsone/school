@@ -11,15 +11,15 @@
 
 @php
   $breadcrumbs = [
-      trans('backpack::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
-      trans('backpack::base.my_account') => false,
+      'Admin' => url(config('backpack.base.route_prefix'), 'dashboard'),
+      'Mening profilim' => false,
   ];
 @endphp
 
 @section('header')
     <section class="content-header">
         <div class="container-fluid mb-3">
-            <h1>{{ trans('backpack::base.my_account') }}</h1>
+            <h1>{{ "Mening Profilim" }}</h1>
         </div>
     </section>
 @endsection
@@ -56,15 +56,42 @@
                 <div class="card padding-10">
 
                     <div class="card-header">
-                        {{ trans('backpack::base.update_account_info') }}
+                        {{ "Profilim ma'lumotlarini yangilash" }}
                     </div>
 
                     <div class="card-body backpack-profile-form bold-labels">
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 @php
-                                    $label = trans('backpack::base.name');
-                                    $field = 'name';
+                                    $label = 'Ismim O`bekchada';
+                                    $field = 'name_uz';
+                                @endphp
+                                <label class="required">{{ $label }}</label>
+                                <input required class="form-control" type="text" name="{{ $field }}" value="{{ old($field) ? old($field) : $user->$field }}">
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                @php
+                                    $label = 'Ismim Ruschada';
+                                    $field = 'name_ru';
+                                @endphp
+                                <label class="required">{{ $label }}</label>
+                                <input required class="form-control" type="text" name="{{ $field }}" value="{{ old($field) ? old($field) : $user->$field }}">
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                @php
+                                    $label = 'Ismim Ingilizchada';
+                                    $field = 'name_en';
+                                @endphp
+                                <label class="required">{{ $label }}</label>
+                                <input required class="form-control" type="text" name="{{ $field }}" value="{{ old($field) ? old($field) : $user->$field }}">
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                @php
+                                    $label = 'Telefon raqamim';
+                                    $field = 'phone';
                                 @endphp
                                 <label class="required">{{ $label }}</label>
                                 <input required class="form-control" type="text" name="{{ $field }}" value="{{ old($field) ? old($field) : $user->$field }}">
@@ -82,14 +109,14 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success"><i class="la la-save"></i> {{ trans('backpack::base.save') }}</button>
-                        <a href="{{ backpack_url() }}" class="btn">{{ trans('backpack::base.cancel') }}</a>
+                        <button type="submit" class="btn btn-success"><i class="la la-save"></i> Saqlash</button>
+                        <a href="{{ backpack_url() }}" class="btn">Bekor qilish</a>
                     </div>
                 </div>
 
             </form>
         </div>
-        
+
         {{-- CHANGE PASSWORD FORM --}}
         <div class="col-lg-8">
             <form class="form" action="{{ route('backpack.account.password') }}" method="post">
@@ -99,14 +126,14 @@
                 <div class="card padding-10">
 
                     <div class="card-header">
-                        {{ trans('backpack::base.change_password') }}
+                        {{ "Parolni o'zgartirish" }}
                     </div>
 
                     <div class="card-body backpack-profile-form bold-labels">
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 @php
-                                    $label = trans('backpack::base.old_password');
+                                    $label = 'Eski parol';
                                     $field = 'old_password';
                                 @endphp
                                 <label class="required">{{ $label }}</label>
@@ -115,7 +142,7 @@
 
                             <div class="col-md-4 form-group">
                                 @php
-                                    $label = trans('backpack::base.new_password');
+                                    $label = 'Yangi parol';
                                     $field = 'new_password';
                                 @endphp
                                 <label class="required">{{ $label }}</label>
@@ -124,7 +151,7 @@
 
                             <div class="col-md-4 form-group">
                                 @php
-                                    $label = trans('backpack::base.confirm_password');
+                                    $label = "Parolni tasdiqlang";
                                     $field = 'confirm_password';
                                 @endphp
                                 <label class="required">{{ $label }}</label>
@@ -134,8 +161,8 @@
                     </div>
 
                     <div class="card-footer">
-                            <button type="submit" class="btn btn-success"><i class="la la-save"></i> {{ trans('backpack::base.change_password') }}</button>
-                            <a href="{{ backpack_url() }}" class="btn">{{ trans('backpack::base.cancel') }}</a>
+                            <button type="submit" class="btn btn-success"><i class="la la-save"></i> Parolni o'zgartirish</button>
+                            <a href="{{ backpack_url() }}" class="btn">Bekor qilish</a>
                     </div>
 
                 </div>

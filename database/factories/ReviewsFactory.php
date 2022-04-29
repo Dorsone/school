@@ -21,6 +21,7 @@ class ReviewsFactory extends Factory
             'phone' => $this->faker->phoneNumber(),
             'message' => $this->faker->text(),
             'level_id' => $level->id,
+            'status' => $this->faker->randomElement([true, false]),
         ];
     }
 }

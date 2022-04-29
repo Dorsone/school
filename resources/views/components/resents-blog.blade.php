@@ -13,7 +13,7 @@
                         <a href="{{route('blog.show', $article->id)}}" class="block-20 d-flex align-items-end" style="background-image: url({{asset($article->image)}});">
                             <div class="meta-date text-center p-2">
                                 <span class="day">{{$article->created_at->format('d')}}</span>
-                                <span class="mos">{{$article->created_at->format('M')}}</span>
+                                <span class="mos">{{__('translate.'.$article->created_at->format('F'))}}</span>
                                 <span class="yr">{{$article->created_at->format('Y')}}</span>
                             </div>
                         </a>

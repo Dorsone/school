@@ -20,7 +20,7 @@
                             <div class="form-field">
                                 <div class="select-wrap">
                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                    <select name="course_id" class="form-control">
+                                    <select name="level_id" class="form-control">
                                         <option style="color: #333333" value="#">{{__('sections/request.content.course_name')}}</option>
                                         @foreach($levels as  $level)
                                             <option style="color: #333333" value="{{$level->id}}">{{$level['name_'.app()->getLocale()]}}</option>

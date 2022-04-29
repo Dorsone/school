@@ -7,7 +7,6 @@ use App\Models\Course;
 use App\Models\Reviews;
 use App\Models\Teacher;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Cache;
 
 class HomeServices
 {
@@ -24,9 +23,14 @@ class HomeServices
         ];
     }
 
-    public function storeReview($validated)
+    /**
+     * @param $validated
+     * @return RedirectResponse
+     */
+    public function storeReview($validated): RedirectResponse
     {
-        dd($validated);
+        Reviews::query()->create($validated);
+        return back();
     }
 
     /**

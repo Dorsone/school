@@ -26,7 +26,7 @@ class ReviewRequest extends FormRequest
         return [
             'first_name' => 'required|string|min:3|max:255',
             'last_name' => 'required|string|min:3|max:255',
-            'course_id' => 'required|integer|exists:levels,id',
+            'level_id' => 'required|integer|exists:levels,id',
             'phone' => 'required|regex:/^998[\d]{9}$/',
             'message' => 'required|string|max:255',
         ];

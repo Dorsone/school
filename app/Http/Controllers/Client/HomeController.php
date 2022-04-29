@@ -36,11 +36,11 @@ class HomeController extends Controller
 
     /**
      * @param ReviewRequest $reviewRequest
-     * @return void
+     * @return RedirectResponse
      */
-    public function storeReview(ReviewRequest $reviewRequest)
+    public function storeReview(ReviewRequest $reviewRequest): RedirectResponse
     {
-        $this->homeServices->storeReview($reviewRequest->validated());
+        return $this->homeServices->storeReview($reviewRequest->validated());
     }
 
     /**

@@ -20,6 +20,7 @@ class CreateReviewsTable extends Migration
             $table->string('phone');
             $table->text('message');
             $table->integer('level_id');
+            $table->string('role');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

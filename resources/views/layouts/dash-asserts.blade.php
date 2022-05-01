@@ -20,7 +20,7 @@
     @yield('styles')
     @yield('header-scripts')
 </head>
-<body class="@yield('body-class')">
+<body class="@yield('body-class')" style="@yield('body-style')">
 @yield('content-assert')
 <script src="{{asset("plugins/jquery/jquery.min.js")}}"></script>
 <script src="{{asset("plugins/jquery-ui/jquery-ui.min.js")}}"></script>

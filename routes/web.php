@@ -20,6 +20,8 @@ use App\Http\Controllers\Client\HomeController;
 */
 
 
+
+Auth::routes(['register' => false, 'reset' => false]);
 Route::get('', [HomeController::class, 'index'])->name('index');
 Route::post('store/review', [HomeController::class, 'storeReview'])->name('store.review');
 Route::get('lang/{lang}', [HomeController::class, 'lang'])->name('lang');
@@ -60,4 +62,13 @@ Route::group([
 ], function () {
     Route::get('', [ContactController::class, 'index'])->name('index');
     Route::post('store/message', [ContactController::class, 'storeMessage'])->name('store.message');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::group([
+        'prefix' => 'admin',
+        'as' => 'admin.'
+    ], function () {
+        Route::get('', function (){return view('admin.index');});
+    });
 });

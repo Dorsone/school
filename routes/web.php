@@ -62,6 +62,6 @@ Route::group([
     Route::post('store/message', [ContactController::class, 'storeMessage'])->name('store.message');
 });
 
-Auth::routes();
+Auth::routes(['register' => false, 'reset' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');

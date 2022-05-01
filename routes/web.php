@@ -69,6 +69,6 @@ Route::middleware('auth')->group(function () {
         'prefix' => 'admin',
         'as' => 'admin.'
     ], function () {
-        Route::get('', function (){dd('');});
+        Route::get('', function (){return view('admin.index');});
     });
 });

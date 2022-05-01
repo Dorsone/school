@@ -20,6 +20,8 @@ use App\Http\Controllers\Client\HomeController;
 */
 
 
+
+Auth::routes(['register' => false, 'reset' => false]);
 Route::get('', [HomeController::class, 'index'])->name('index');
 Route::post('store/review', [HomeController::class, 'storeReview'])->name('store.review');
 Route::get('lang/{lang}', [HomeController::class, 'lang'])->name('lang');
@@ -62,6 +64,11 @@ Route::group([
     Route::post('store/message', [ContactController::class, 'storeMessage'])->name('store.message');
 });
 
-Auth::routes(['register' => false, 'reset' => false]);
-
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
+Route::middleware('auth')->group(function () {
+    Route::group([
+        'prefix' => 'admin',
+        'as' => 'admin.'
+    ], function () {
+        Route::get('', function (){dd('');});
+    });
+});

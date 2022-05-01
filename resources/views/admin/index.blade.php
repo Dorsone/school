@@ -15,7 +15,7 @@
                     <p>Yangi Sharhlar</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-regular fa-envelope"></i>
+                    <i class="fas fa-solid fa-comment"></i>
                 </div>
                 <a href="#" class="small-box-footer">Batafsil <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -60,7 +60,7 @@
                     <p>Xabarlar</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-solid fa-paper-plane"></i>
+                    <i class="fas fa-regular fa-envelope"></i>
                 </div>
                 <a href="#" class="small-box-footer">Batafsil <i class="fas fa-arrow-circle-right"></i></a>
             </div>

@@ -71,5 +71,62 @@ Route::middleware('auth')->group(function () {
         'as' => 'admin.'
     ], function () {
         Route::get('', [AdminController::class, 'index'])->name('index');
+
+        Route::group([
+            'prefix' => 'admins',
+            'as' => 'admins.'
+        ], function () {
+            Route::get('', [AdminController::class, 'admins'])->name('index');
+        });
+
+        Route::group([
+            'prefix' => 'moderators',
+            'as' => 'moderators.'
+        ], function () {
+            Route::get('', [AdminController::class, 'moderators'])->name('index');
+        });
+
+        Route::group([
+            'prefix' => 'teachers',
+            'as' => 'teachers.'
+        ], function () {
+            Route::get('', [AdminController::class, 'teachers'])->name('index');
+        });
+
+        Route::group([
+            'prefix' => 'students',
+            'as' => 'students.'
+        ], function () {
+            Route::get('', [AdminController::class, 'students'])->name('index');
+        });
+
+        Route::group([
+            'prefix' => 'reviews',
+            'as' => 'reviews.'
+        ], function () {
+            Route::get('', [AdminController::class, 'reviews'])->name('index');
+        });
+
+        Route::group([
+            'prefix' => 'messages',
+            'as' => 'messages.'
+        ], function () {
+            Route::get('', [AdminController::class, 'messages'])->name('index');
+        });
+
+        Route::group([
+            'prefix' => 'news',
+            'as' => 'news.'
+        ], function () {
+            Route::get('', [AdminController::class, 'news'])->name('index');
+        });
+
+        Route::group([
+            'prefix' => 'settings',
+            'as' => 'settings.'
+        ], function () {
+            Route::get('', [AdminController::class, 'settings'])->name('index');
+        });
+
     });
 });

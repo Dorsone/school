@@ -61,3 +61,7 @@ Route::group([
     Route::get('', [ContactController::class, 'index'])->name('index');
     Route::post('store/message', [ContactController::class, 'storeMessage'])->name('store.message');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

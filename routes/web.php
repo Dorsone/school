@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\BlogController;
 use App\Http\Controllers\Client\ContactController;
@@ -69,6 +70,6 @@ Route::middleware('auth')->group(function () {
         'prefix' => 'admin',
         'as' => 'admin.'
     ], function () {
-        Route::get('', function (){return view('admin.index');});
+        Route::get('', [AdminController::class, 'index'])->name('index');
     });
 });

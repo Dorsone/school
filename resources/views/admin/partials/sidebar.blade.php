@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('index', 'edu')}}" class="brand-link">
-        <img src="{{asset("img/logo-alt.png")}}" alt="AdminLTE Logo" class="brand-image">
-        <span class="brand-text font-weight-light">Dashboard</span>
+        <img src="{{asset("images/logo-light.png")}}" alt="AdminLTE Logo" class="brand-image">
+        <span class="brand-text font-weight-light">Admin Panel</span>
     </a>
 
     <!-- Sidebar -->

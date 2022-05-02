@@ -36,4 +36,11 @@ class AdminServices
             'admins' => User::query()->where('role', '3')->paginate(10),
         ];
     }
+
+    public function moderators()
+    {
+        return [
+            'moderators' => User::query()->where('role', '2')->paginate(10),
+        ];
+    }
 }

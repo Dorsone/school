@@ -1,7 +1,15 @@
 @extends('layouts.crud-table')
 
+@section('title')
+    Adminlar
+@endsection
+
+@section('bread-crumbs')
+    <li class="breadcrumb-item active">Adminlar</li>
+@endsection
+
 @section('table-title')
-    Projects
+    Adminlar
 @endsection
 
 @section('table-header')
@@ -16,36 +24,32 @@
 @endsection
 
 @section('table-body')
-    <tr>
-        <td>1</td>
-        <td>admin</td>
-        <td>Jasur Dustmurodov</td>
-        <td>Jasur Dustmurodov</td>
-        <td>Jasur Dustmurodov</td>
-        <td>+998900858533</td>
-        <td class="project-state">
-            <span class="badge badge-success">Active</span>
-        </td>
-        <td class="project-actions text-right">
-            <a class="btn btn-primary btn-sm" href="#">
-                <i class="fas fa-folder"></i>View
-            </a>
-            <a class="btn btn-info btn-sm" href="#">
-                <i class="fas fa-pencil-alt"></i>Edit
-            </a>
-            <a class="btn btn-danger btn-sm" href="#">
-                <i class="fas fa-trash"></i>Delete
-            </a>
-        </td>
-    </tr>
+    @foreach($admins->items() as $admin)
+        <tr>
+            <td>{{$admin->id}}</td>
+            <td>{{$admin->login}}</td>
+            <td>{{$admin->name_uz}}</td>
+            <td>{{$admin->name_ru}}</td>
+            <td>{{$admin->name_en}}</td>
+            <td>{{$admin->phone}}</td>
+            <td class="project-state">
+                <span class="badge badge-success">Active</span>
+            </td>
+            <td class="project-actions text-right">
+                <a class="btn btn-primary btn-sm" href="#">
+                    <i class="fas fa-folder"></i>View
+                </a>
+                <a class="btn btn-info btn-sm" href="#">
+                    <i class="fas fa-pencil-alt"></i>Edit
+                </a>
+                <a class="btn btn-danger btn-sm" href="#">
+                    <i class="fas fa-trash"></i>Delete
+                </a>
+            </td>
+        </tr>
+    @endforeach
 @endsection
 
 @section('table-footer')
-    <ul class="pagination pagination-sm m-0 float-right">
-        <li class="page-item"><a class="page-link" href="#">«</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">»</a></li>
-    </ul>
+    {{$admins->links('vendor.pagination.bootstrap-4')}}
 @endsection

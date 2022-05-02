@@ -1,11 +1,15 @@
 @extends('layouts.crud-table')
 
 @section('title')
-    Projects
+    Xabarlar
 @endsection
 
 @section('table-title')
-    Projects
+    Xabarlar
+@endsection
+
+@section('bread-crumbs')
+    <li class="active breadcrumb-item">Xabarlar</li>
 @endsection
 
 @section('table-header')

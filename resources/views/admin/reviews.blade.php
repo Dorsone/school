@@ -1,11 +1,15 @@
 @extends('layouts.crud-table')
 
 @section('title')
-    Yangi Sharhlar
+    Sharhlar
 @endsection
 
 @section('table-title')
-    Yangi Sharhlar
+    Sharhlar
+@endsection
+
+@section('bread-crumbs')
+    <li class="breadcrumb-item active">Sharhlar</li>
 @endsection
 
 @section('table-header')

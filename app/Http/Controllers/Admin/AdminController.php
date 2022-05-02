@@ -65,7 +65,8 @@ class AdminController extends Controller
 
     public function messages()
     {
-        return view('admin.messages');
+        $data = $this->adminServices->messages();
+        return view('admin.messages', $data);
     }
 
     public function news()

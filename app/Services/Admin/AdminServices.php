@@ -77,4 +77,11 @@ class AdminServices
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'messages' => Message::query()->paginate(10),
+        ];
+    }
+
 }

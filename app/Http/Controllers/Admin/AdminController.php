@@ -53,7 +53,8 @@ class AdminController extends Controller
 
     public function students()
     {
-        return view('admin.students');
+        $data = $this->adminServices->students();
+        return view('admin.students', $data);
     }
 
     public function reviews()

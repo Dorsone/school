@@ -47,10 +47,24 @@ class AdminServices
         ];
     }
 
-    public function teachers()
+    /**
+     * @return array
+     */
+    public function teachers(): array
     {
         return [
             'teachers' => Teacher::query()->paginate(10),
         ];
     }
+
+    /**
+     * @return array
+     */
+    public function students(): array
+    {
+        return [
+            'students' => Student::query()->paginate(20),
+        ];
+    }
+
 }

@@ -77,10 +77,23 @@ class AdminServices
         ];
     }
 
-    public function messages()
+    /**
+     * @return array
+     */
+    public function messages(): array
     {
         return [
             'messages' => Message::query()->paginate(10),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function news(): array
+    {
+        return [
+            'news' => Article::query()->paginate(10),
         ];
     }
 

@@ -1,11 +1,15 @@
 @extends('layouts.crud-table')
 
 @section('title')
-    Projects
+    Yangiliklar
 @endsection
 
 @section('table-title')
-    Projects
+    Yangliklar
+@endsection
+
+@section('bread-crumbs')
+    <li class="breadcrumb-item active">Yangiliklar</li>
 @endsection
 
 @section('table-header')
@@ -17,35 +21,27 @@
 @endsection
 
 @section('table-body')
-    <tr>
-        <td>1</td>
-        <td>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at cumque
-            eius laborum quaerat tenetur totam. Autem consequatur dicta dolores explicabo
-            libero pariatur reiciendis rem voluptatibus. Iusto obcaecati porro praesentium.
-        </td>
-        <td>Jasur Dustmurodov</td>
-        <td>20.05.2022 16:50</td>
-        <td class="project-actions text-right">
-            <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="#">
-                <i class="fas fa-folder"></i> View
-            </a>
-            <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
-                <i class="fas fa-pencil-alt"></i> Edit
-            </a>
-            <a class="btn btn-danger btn-sm" href="#">
-                <i class="fas fa-trash"></i> Delete
-            </a>
-        </td>
-    </tr>
+    @foreach($news->items() as $article)
+        <tr>
+            <td>{{$article->id}}</td>
+            <td>{{$article->title_preview_uz}}</td>
+            <td>{{$article->user->name_uz}}</td>
+            <td>{{$article->created_at}}</td>
+            <td class="project-actions text-right">
+                <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="#">
+                    <i class="fas fa-folder"></i> View
+                </a>
+                <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
+                    <i class="fas fa-pencil-alt"></i> Edit
+                </a>
+                <a class="btn btn-danger btn-sm" href="#">
+                    <i class="fas fa-trash"></i> Delete
+                </a>
+            </td>
+        </tr>
+    @endforeach
 @endsection
 
 @section('table-footer')
-    <ul class="pagination pagination-sm m-0 float-right">
-        <li class="page-item"><a class="page-link" href="#">«</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">»</a></li>
-    </ul>
+    {{$news->links('vendor.pagination.bootstrap-4')}}
 @endsection

@@ -37,10 +37,20 @@ class AdminServices
         ];
     }
 
-    public function moderators()
+    /**
+     * @return array
+     */
+    public function moderators(): array
     {
         return [
             'moderators' => User::query()->where('role', '2')->paginate(10),
+        ];
+    }
+
+    public function teachers()
+    {
+        return [
+            'teachers' => Teacher::query()->paginate(10),
         ];
     }
 }

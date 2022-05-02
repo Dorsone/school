@@ -3,12 +3,34 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\Admin\AdminServices;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class AdminController extends Controller
 {
+
+    /**
+     * @var AdminServices
+     */
+    protected $adminServices;
+
+    /**
+     * @param AdminServices $adminServices
+     */
+    public function __construct(AdminServices $adminServices)
+    {
+        $this->adminServices = $adminServices;
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
     public function index()
     {
-        return view('admin.index');
+        $data = $this->adminServices->index();
+        return view('admin.index', $data);
     }
 
     public function admins()

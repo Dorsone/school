@@ -77,6 +77,7 @@ class AdminController extends Controller
 
     public function settings()
     {
-        return view('admin.settings');
+        $data = $this->adminServices->settings();
+        return view('admin.settings', $data);
     }
 }

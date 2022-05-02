@@ -1,27 +1,32 @@
 @extends('layouts.crud-table')
 
 @section('title')
-    Projects
+    Sozlamalar
 @endsection
 
 @section('table-title')
-    Projects
+    Sozlamalar
+@endsection
+
+@section('bread-crumbs')
+    <li class="active breadcrumb-item">Sozlamalar</li>
 @endsection
 
 @section('table-header')
     <th>ID</th>
     <th>Sozlama nomi</th>
     <th>Qiymati</th>
-    <th>Tahrirlangan sana</th>
+    <th>Bo`lim nomi</th>
     <th></th>
 @endsection
 
 @section('table-body')
+    @foreach($settings->items() as $setting)
     <tr>
-        <td>1</td>
-        <td>Address</td>
-        <td>address name</td>
-        <td>20.05.2022 16:50</td>
+        <td>{{$setting->id}}</td>
+        <td>{{$setting->name}}</td>
+        <td>{{$setting->value}}</td>
+        <td>{{$setting->section}}</td>
         <td class="project-actions text-right">
             <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="#">
                 <i class="fas fa-folder"></i> View
@@ -34,14 +39,9 @@
             </a>
         </td>
     </tr>
+    @endforeach
 @endsection
 
 @section('table-footer')
-    <ul class="pagination pagination-sm m-0 float-right">
-        <li class="page-item"><a class="page-link" href="#">«</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">»</a></li>
-    </ul>
+    {{$settings->links('vendor.pagination.bootstrap-4')}}
 @endsection

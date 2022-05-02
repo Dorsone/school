@@ -5,6 +5,7 @@ namespace App\Services\Admin;
 use App\Models\Article;
 use App\Models\Message;
 use App\Models\Reviews;
+use App\Models\Setting;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
@@ -94,6 +95,16 @@ class AdminServices
     {
         return [
             'news' => Article::query()->paginate(10),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function settings(): array
+    {
+        return [
+            'settings' => Setting::query()->paginate(10),
         ];
     }
 

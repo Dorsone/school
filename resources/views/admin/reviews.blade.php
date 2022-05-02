@@ -1,11 +1,11 @@
 @extends('layouts.crud-table')
 
 @section('title')
-    Projects
+    Yangi Sharhlar
 @endsection
 
 @section('table-title')
-    Projects
+    Yangi Sharhlar
 @endsection
 
 @section('table-header')
@@ -19,33 +19,29 @@
 @endsection
 
 @section('table-body')
-    <tr>
-        <td>1</td>
-        <td>Jasur</td>
-        <td>Dustmurodov</td>
-        <td>+998900858533</td>
-        <td>10-V</td>
-        <td>20.05.2022 16:50</td>
-        <td class="project-actions text-right">
-            <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="#">
-                <i class="fas fa-folder"></i> View
-            </a>
-            <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
-                <i class="fas fa-pencil-alt"></i> Edit
-            </a>
-            <a class="btn btn-danger btn-sm" href="#">
-                <i class="fas fa-trash"></i> Delete
-            </a>
-        </td>
-    </tr>
+    @foreach($reviews->items() as $review)
+        <tr>
+            <td>{{$review->id}}</td>
+            <td>{{$review->first_name}}</td>
+            <td>{{$review->last_name}}</td>
+            <td>{{$review->phone}}</td>
+            <td>{{$review->level->name_uz    }}</td>
+            <td>{{$review->created_at}}</td>
+            <td class="project-actions text-right">
+                <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="#">
+                    <i class="fas fa-folder"></i> View
+                </a>
+                <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
+                    <i class="fas fa-pencil-alt"></i> Edit
+                </a>
+                <a class="btn btn-danger btn-sm" href="#">
+                    <i class="fas fa-trash"></i> Delete
+                </a>
+            </td>
+        </tr>
+    @endforeach
 @endsection
 
 @section('table-footer')
-    <ul class="pagination pagination-sm m-0 float-right">
-        <li class="page-item"><a class="page-link" href="#">«</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">»</a></li>
-    </ul>
+{{$reviews->links('vendor.pagination.bootstrap-4')}}
 @endsection

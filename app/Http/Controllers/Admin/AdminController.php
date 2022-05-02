@@ -59,7 +59,8 @@ class AdminController extends Controller
 
     public function reviews()
     {
-        return view('admin.reviews');
+        $data = $this->adminServices->reviews();
+        return view('admin.reviews', $data);
     }
 
     public function messages()

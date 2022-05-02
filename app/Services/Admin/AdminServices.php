@@ -67,4 +67,14 @@ class AdminServices
         ];
     }
 
+    /**
+     * @return array
+     */
+    public function reviews(): array
+    {
+        return [
+            'reviews' => Reviews::query()->paginate(20),
+        ];
+    }
+
 }

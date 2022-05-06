@@ -1,7 +1,7 @@
 @extends('layouts.dash')
 
 @section('content-title')
-    Admin haqida ma'lumot
+    O`qituvchilar haqida ma'lumot
 @endsection
 
 @section('bread-crumbs')
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a class="btn btn-primary" href="{{route('admin.admins.index')}}">Ortga</a>
+                <a class="btn btn-primary" href="{{route('admin.teachers.index')}}">Ortga</a>
             </div>
         </div>
     </div>

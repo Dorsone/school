@@ -117,6 +117,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'messages.'
         ], function () {
             Route::get('', [AdminController::class, 'messages'])->name('index');
+            Route::get('{message}', [AdminController::class, 'messageShow'])->name('show');
         });
 
         Route::group([

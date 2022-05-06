@@ -51,6 +51,11 @@ class AdminController extends Controller
         return view('admin.moderators', $data);
     }
 
+    public function moderatorShow(User $user)
+    {
+        return view('admin.admins-show', compact('user'));
+    }
+
     public function teachers()
     {
         $data = $this->adminServices->teachers();

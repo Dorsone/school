@@ -85,6 +85,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'moderators.'
         ], function () {
             Route::get('', [AdminController::class, 'moderators'])->name('index');
+            Route::get('{user}', [AdminController::class, 'moderatorShow'])->name('show');
         });
 
         Route::group([

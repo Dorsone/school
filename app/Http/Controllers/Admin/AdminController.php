@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Services\Admin\AdminServices;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -37,6 +38,11 @@ class AdminController extends Controller
     {
         $data = $this->adminServices->admins();
         return view('admin.admins', $data);
+    }
+
+    public function adminsShow(User $user)
+    {
+        return view('admin.admins-show', compact('user'));
     }
 
     public function moderators()

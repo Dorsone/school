@@ -93,6 +93,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'teachers.'
         ], function () {
             Route::get('', [AdminController::class, 'teachers'])->name('index');
+            Route::get('{teacher}', [AdminController::class, 'teacherShow'])->name('show');
         });
 
         Route::group([

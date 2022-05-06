@@ -32,8 +32,8 @@
                 <span class="badge badge-success">Active</span>
             </td>
             <td class="project-actions text-right">
-                <a class="btn btn-primary btn-sm" href="#">
-                    <i class="fas fa-folder"></i>View
+                <a class="btn btn-primary btn-sm" href="{{route('admin.teachers.show', $teacher->id)}}">
+                    <i class="fas fa-folder"></i>Batafsil
                 </a>
                 <a class="btn btn-info btn-sm" href="#">
                     <i class="fas fa-pencil-alt"></i>Edit

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Teacher;
 use App\Models\User;
 use App\Services\Admin\AdminServices;
 use Illuminate\Contracts\Foundation\Application;
@@ -60,6 +61,11 @@ class AdminController extends Controller
     {
         $data = $this->adminServices->teachers();
         return view('admin.teachers', $data);
+    }
+
+    public function teacherShow(Teacher $teacher)
+    {
+        return view('admin.teacher-show', compact('teacher'));
     }
 
     public function students()

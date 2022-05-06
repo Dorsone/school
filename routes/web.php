@@ -125,6 +125,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'news.'
         ], function () {
             Route::get('', [AdminController::class, 'news'])->name('index');
+            Route::get('{article}', [AdminController::class, 'newsShow'])->name('show');
         });
 
         Route::group([

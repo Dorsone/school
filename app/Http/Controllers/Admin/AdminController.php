@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\Message;
 use App\Models\Reviews;
 use App\Models\Student;
@@ -108,6 +109,11 @@ class AdminController extends Controller
     {
         $data = $this->adminServices->news();
         return view('admin.news', $data);
+    }
+
+    public function newsShow(Article $article)
+    {
+        return view('admin.news-show', compact('article'));
     }
 
     public function settings()

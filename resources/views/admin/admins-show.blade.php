@@ -1,11 +1,11 @@
 @extends('layouts.dash')
 
 @section('content-title')
-    Admin haqida ma'lumot
+    @if($user->role == 3)Admin @else Moderator @endif haqida ma'lumot
 @endsection
 
 @section('bread-crumbs')
-    <li class="breadcrumb-item"><a href="{{route('admin.admins.index')}}">Adminlar</a></li>
+    <li class="breadcrumb-item"><a href="{{route('admin.admins.index')}}">@if($user->role == 3)Adminlar @else Moderatorlar @endif</a></li>
     <li class="breadcrumb-item active">Batafsil</li>
 @endsection
 
@@ -13,7 +13,7 @@
     <div class="col-md">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Admin haqida ma'lumot</h3>
+                <h3 class="card-title">@if($user->role == 3)Admin @else Moderator @endif haqida ma'lumot</h3>
             </div>
             <div class="card-body">
                 <div class="row">

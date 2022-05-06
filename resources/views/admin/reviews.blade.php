@@ -32,8 +32,8 @@
             <td>{{$review->level->name_uz    }}</td>
             <td>{{$review->created_at}}</td>
             <td class="project-actions text-right">
-                <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="#">
-                    <i class="fas fa-folder"></i> View
+                <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="{{route('admin.reviews.show', $review->id)}}">
+                    <i class="fas fa-folder"></i> Batafsil
                 </a>
                 <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
                     <i class="fas fa-pencil-alt"></i> Edit

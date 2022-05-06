@@ -77,6 +77,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'admins.'
         ], function () {
             Route::get('', [AdminController::class, 'admins'])->name('index');
+            Route::get('{user}', [AdminController::class, 'adminsShow'])->name('show');
         });
 
         Route::group([
@@ -84,6 +85,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'moderators.'
         ], function () {
             Route::get('', [AdminController::class, 'moderators'])->name('index');
+            Route::get('{user}', [AdminController::class, 'moderatorShow'])->name('show');
         });
 
         Route::group([
@@ -91,6 +93,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'teachers.'
         ], function () {
             Route::get('', [AdminController::class, 'teachers'])->name('index');
+            Route::get('{teacher}', [AdminController::class, 'teacherShow'])->name('show');
         });
 
         Route::group([
@@ -98,6 +101,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'students.'
         ], function () {
             Route::get('', [AdminController::class, 'students'])->name('index');
+            Route::get('{student}', [AdminController::class, 'studentShow'])->name('show');
         });
 
         Route::group([
@@ -105,6 +109,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'reviews.'
         ], function () {
             Route::get('', [AdminController::class, 'reviews'])->name('index');
+            Route::get('{reviews}', [AdminController::class, 'reviewsShow'])->name('show');
         });
 
         Route::group([
@@ -112,6 +117,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'messages.'
         ], function () {
             Route::get('', [AdminController::class, 'messages'])->name('index');
+            Route::get('{message}', [AdminController::class, 'messageShow'])->name('show');
         });
 
         Route::group([
@@ -119,6 +125,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'news.'
         ], function () {
             Route::get('', [AdminController::class, 'news'])->name('index');
+            Route::get('{article}', [AdminController::class, 'newsShow'])->name('show');
         });
 
         Route::group([
@@ -126,6 +133,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'settings.'
         ], function () {
             Route::get('', [AdminController::class, 'settings'])->name('index');
+            Route::get('{setting}', [AdminController::class, 'settingShow'])->name('show');
         });
 
     });

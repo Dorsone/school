@@ -3,6 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\Message;
+use App\Models\Reviews;
+use App\Models\Setting;
+use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\User;
 use App\Services\Admin\AdminServices;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -39,10 +46,20 @@ class AdminController extends Controller
         return view('admin.admins', $data);
     }
 
+    public function adminsShow(User $user)
+    {
+        return view('admin.admins-show', compact('user'));
+    }
+
     public function moderators()
     {
         $data = $this->adminServices->moderators();
         return view('admin.moderators', $data);
+    }
+
+    public function moderatorShow(User $user)
+    {
+        return view('admin.admins-show', compact('user'));
     }
 
     public function teachers()
@@ -51,10 +68,20 @@ class AdminController extends Controller
         return view('admin.teachers', $data);
     }
 
+    public function teacherShow(Teacher $teacher)
+    {
+        return view('admin.teacher-show', compact('teacher'));
+    }
+
     public function students()
     {
         $data = $this->adminServices->students();
         return view('admin.students', $data);
+    }
+
+    public function studentShow(Student $student)
+    {
+        return view('admin.student-show', compact('student'));
     }
 
     public function reviews()
@@ -63,10 +90,20 @@ class AdminController extends Controller
         return view('admin.reviews', $data);
     }
 
+    public function reviewsShow(Reviews $reviews)
+    {
+        return view('admin.review-show', compact('reviews'));
+    }
+
     public function messages()
     {
         $data = $this->adminServices->messages();
         return view('admin.messages', $data);
+    }
+
+    public function messageShow(Message $message)
+    {
+        return view('admin.message-show', compact('message'));
     }
 
     public function news()
@@ -75,9 +112,19 @@ class AdminController extends Controller
         return view('admin.news', $data);
     }
 
+    public function newsShow(Article $article)
+    {
+        return view('admin.news-show', compact('article'));
+    }
+
     public function settings()
     {
         $data = $this->adminServices->settings();
         return view('admin.settings', $data);
+    }
+
+    public function settingShow(Setting $setting)
+    {
+        return view('admin.setting-show', compact('setting'));
     }
 }

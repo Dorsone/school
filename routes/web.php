@@ -133,6 +133,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'settings.'
         ], function () {
             Route::get('', [AdminController::class, 'settings'])->name('index');
+            Route::get('{setting}', [AdminController::class, 'settingShow'])->name('show');
         });
 
     });

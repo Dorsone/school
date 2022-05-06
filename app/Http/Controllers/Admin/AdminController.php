@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Message;
 use App\Models\Reviews;
+use App\Models\Setting;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
@@ -120,5 +121,10 @@ class AdminController extends Controller
     {
         $data = $this->adminServices->settings();
         return view('admin.settings', $data);
+    }
+
+    public function settingShow(Setting $setting)
+    {
+        return view('admin.setting-show', compact('setting'));
     }
 }

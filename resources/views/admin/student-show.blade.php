@@ -5,7 +5,7 @@
 @endsection
 
 @section('bread-crumbs')
-    <li class="breadcrumb-item"><a href="{{route('admin.admins.index')}}">O`quvchilar</a></li>
+    <li class="breadcrumb-item"><a href="{{route('admin.students.index')}}">O`quvchilar</a></li>
     <li class="breadcrumb-item active">Batafsil</li>
 @endsection
 
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a class="btn btn-primary" href="{{route('admin.admins.index')}}">Ortga</a>
+                <a class="btn btn-primary" href="{{route('admin.students.index')}}">Ortga</a>
             </div>
         </div>
     </div>

@@ -14,6 +14,7 @@ use App\Services\Admin\AdminServices;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
 {
@@ -59,6 +60,16 @@ class AdminController extends Controller
     }
 
     /**
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function adminsDelete(User $user): RedirectResponse
+    {
+        $user->delete();
+        return redirect()->route('admin.admins.index');
+    }
+
+    /**
      * @return Application|Factory|View
      */
     public function moderators()
@@ -74,6 +85,16 @@ class AdminController extends Controller
     public function moderatorShow(User $user)
     {
         return view('admin.admins-show', compact('user'));
+    }
+
+    /**
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function moderatorDelete(User $user): RedirectResponse
+    {
+        $user->delete();
+        return redirect()->route('admin.moderators.index');
     }
 
     /**
@@ -95,6 +116,16 @@ class AdminController extends Controller
     }
 
     /**
+     * @param Teacher $teacher
+     * @return RedirectResponse
+     */
+    public function teacherDelete(Teacher $teacher): RedirectResponse
+    {
+        $teacher->delete();
+        return redirect()->route('admin.teachers.index');
+    }
+
+    /**
      * @return Application|Factory|View
      */
     public function students()
@@ -110,6 +141,16 @@ class AdminController extends Controller
     public function studentShow(Student $student)
     {
         return view('admin.student-show', compact('student'));
+    }
+
+    /**
+     * @param Student $student
+     * @return RedirectResponse
+     */
+    public function studentDelete(Student $student): RedirectResponse
+    {
+        $student->delete();
+        return redirect()->route('admin.students.index');
     }
 
     /**
@@ -131,6 +172,16 @@ class AdminController extends Controller
     }
 
     /**
+     * @param Reviews $reviews
+     * @return RedirectResponse
+     */
+    public function reviewsDelete(Reviews $reviews): RedirectResponse
+    {
+        $reviews->delete();
+        return redirect()->route('admin.reviews.index');
+    }
+
+    /**
      * @return Application|Factory|View
      */
     public function messages()
@@ -149,6 +200,16 @@ class AdminController extends Controller
     }
 
     /**
+     * @param Message $message
+     * @return RedirectResponse
+     */
+    public function messageDelete(Message $message): RedirectResponse
+    {
+        $message->delete();
+        return redirect()->route('admin.messages.index');
+    }
+
+    /**
      * @return Application|Factory|View
      */
     public function news()
@@ -164,6 +225,16 @@ class AdminController extends Controller
     public function newsShow(Article $article)
     {
         return view('admin.news-show', compact('article'));
+    }
+
+    /**
+     * @param Article $article
+     * @return RedirectResponse
+     */
+    public function newsDelete(Article $article): RedirectResponse
+    {
+        $article->delete();
+        return redirect()->route('admin.news.index');
     }
 
     /**

@@ -42,9 +42,11 @@
                 <a class="btn btn-info btn-sm" href="#">
                     <i class="fas fa-pencil-alt"></i>Edit
                 </a>
-                <a class="btn btn-danger btn-sm" href="#">
-                    <i class="fas fa-trash"></i>Delete
-                </a>
+                <form action="{{route('admin.moderators.delete', $moderator->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>O`chirish</button>
+                </form>
             </td>
         </tr>
     @endforeach

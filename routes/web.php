@@ -78,6 +78,7 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('', [AdminController::class, 'admins'])->name('index');
             Route::get('{user}', [AdminController::class, 'adminsShow'])->name('show');
+            Route::delete('{user}', [AdminController::class, 'adminsDelete'])->name('delete');
         });
 
         Route::group([
@@ -86,6 +87,7 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('', [AdminController::class, 'moderators'])->name('index');
             Route::get('{user}', [AdminController::class, 'moderatorShow'])->name('show');
+            Route::delete('{user}', [AdminController::class, 'moderatorDelete'])->name('delete');
         });
 
         Route::group([
@@ -94,6 +96,7 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('', [AdminController::class, 'teachers'])->name('index');
             Route::get('{teacher}', [AdminController::class, 'teacherShow'])->name('show');
+            Route::delete('{teacher}', [AdminController::class, 'teacherDelete'])->name('delete');
         });
 
         Route::group([
@@ -102,6 +105,7 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('', [AdminController::class, 'students'])->name('index');
             Route::get('{student}', [AdminController::class, 'studentShow'])->name('show');
+            Route::delete('{student}', [AdminController::class, 'studentDelete'])->name('delete');
         });
 
         Route::group([
@@ -110,6 +114,7 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('', [AdminController::class, 'reviews'])->name('index');
             Route::get('{reviews}', [AdminController::class, 'reviewsShow'])->name('show');
+            Route::delete('{reviews}', [AdminController::class, 'reviewsDelete'])->name('delete');
         });
 
         Route::group([
@@ -118,6 +123,7 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('', [AdminController::class, 'messages'])->name('index');
             Route::get('{message}', [AdminController::class, 'messageShow'])->name('show');
+            Route::delete('{message}', [AdminController::class, 'messageDelete'])->name('delete');
         });
 
         Route::group([
@@ -126,6 +132,7 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('', [AdminController::class, 'news'])->name('index');
             Route::get('{article}', [AdminController::class, 'newsShow'])->name('show');
+            Route::delete('{article}', [AdminController::class, 'newsDelete'])->name('delete');
         });
 
         Route::group([

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reviews;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
@@ -84,6 +85,11 @@ class AdminController extends Controller
     {
         $data = $this->adminServices->reviews();
         return view('admin.reviews', $data);
+    }
+
+    public function reviewsShow(Reviews $reviews)
+    {
+        return view('admin.message-show', compact('reviews'));
     }
 
     public function messages()

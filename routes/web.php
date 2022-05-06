@@ -109,6 +109,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'reviews.'
         ], function () {
             Route::get('', [AdminController::class, 'reviews'])->name('index');
+            Route::get('{reviews}', [AdminController::class, 'reviewsShow'])->name('show');
         });
 
         Route::group([

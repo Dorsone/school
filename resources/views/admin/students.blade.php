@@ -36,8 +36,8 @@
                 <span class="badge @if($student->status == 0) badge-danger @else badge-success @endif "> @if($student->status == 0) Ketgan @else O`qiyapti @endif </span>
             </td>
             <td class="project-actions text-right">
-                <a class="btn btn-primary btn-sm" href="#">
-                    <i class="fas fa-folder"></i>View
+                <a class="btn btn-primary btn-sm" href="{{route('admin.students.show', $student->id)}}">
+                    <i class="fas fa-folder"></i>Batafsil
                 </a>
                 <a class="btn btn-info btn-sm" href="#">
                     <i class="fas fa-pencil-alt"></i>Edit

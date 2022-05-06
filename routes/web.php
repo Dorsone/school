@@ -101,6 +101,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'students.'
         ], function () {
             Route::get('', [AdminController::class, 'students'])->name('index');
+            Route::get('{student}', [AdminController::class, 'studentShow'])->name('show');
         });
 
         Route::group([

@@ -9,6 +9,8 @@ use App\Models\Setting;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 
 class AdminServices
 {
@@ -46,6 +48,14 @@ class AdminServices
         return [
             'moderators' => User::query()->where('role', '2')->paginate(10),
         ];
+    }
+
+    public function moderatorStore($validated): RedirectResponse
+    {
+        $validated += ['role' => "2"];
+        $validated += ['remember_token' => Str::random(10)];
+        User::query()->create($validated);
+        return redirect()->route('admin.moderators.index');
     }
 
     /**

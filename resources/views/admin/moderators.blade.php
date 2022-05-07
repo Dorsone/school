@@ -2,6 +2,9 @@
 
 @section('title')
     Moderatorlar
+    <a href="{{route('admin.moderators.create')}}" class="btn bg-gradient-info">
+        <i class="fas fa-plus"></i> Yaratish
+    </a>
 @endsection
 
 @section('bread-crumbs')

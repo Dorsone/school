@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ModeratorRequest;
 use App\Models\Article;
 use App\Models\Message;
 use App\Models\Reviews;
@@ -14,6 +15,7 @@ use App\Services\Admin\AdminServices;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Client\Request;
 use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
@@ -76,6 +78,20 @@ class AdminController extends Controller
     {
         $data = $this->adminServices->moderators();
         return view('admin.moderators', $data);
+    }
+
+    public function moderatorCreate()
+    {
+        return \view('admin.moderators-create');
+    }
+
+    /**
+     * @param ModeratorRequest $moderatorRequest
+     * @return RedirectResponse
+     */
+    public function moderatorStore(ModeratorRequest $moderatorRequest): RedirectResponse
+    {
+        return $this->adminServices->moderatorStore($moderatorRequest->validated());
     }
 
     /**

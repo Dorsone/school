@@ -86,6 +86,8 @@ Route::middleware('auth')->group(function () {
             'as' => 'moderators.'
         ], function () {
             Route::get('', [AdminController::class, 'moderators'])->name('index');
+            Route::get('create', [AdminController::class, 'moderatorCreate'])->name('create');
+            Route::post('store', [AdminController::class, 'moderatorStore'])->name('store');
             Route::get('{user}', [AdminController::class, 'moderatorShow'])->name('show');
             Route::delete('{user}', [AdminController::class, 'moderatorDelete'])->name('delete');
         });

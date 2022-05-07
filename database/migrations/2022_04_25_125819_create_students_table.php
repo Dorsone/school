@@ -22,6 +22,7 @@ class CreateStudentsTable extends Migration
             $table->date('born');
             $table->integer('level_id');
             $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

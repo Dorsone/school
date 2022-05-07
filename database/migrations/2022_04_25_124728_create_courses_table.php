@@ -25,6 +25,7 @@ class CreateCoursesTable extends Migration
             $table->time('to_time');
             $table->integer('level_id');
             $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

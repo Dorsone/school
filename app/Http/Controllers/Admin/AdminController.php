@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ModeratorRequest;
+use App\Http\Requests\StudentStoreRequest;
 use App\Models\Article;
+use App\Models\Level;
 use App\Models\Message;
 use App\Models\Reviews;
 use App\Models\Setting;
@@ -82,7 +84,7 @@ class AdminController extends Controller
 
     public function moderatorCreate()
     {
-        return \view('admin.moderators-create');
+        return view('admin.student-create');
     }
 
     /**
@@ -157,6 +159,15 @@ class AdminController extends Controller
     public function studentShow(Student $student)
     {
         return view('admin.student-show', compact('student'));
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function studentCreate()
+    {
+        $levels = Level::all();
+        return view('admin.student-create', compact('levels'));
     }
 
     /**

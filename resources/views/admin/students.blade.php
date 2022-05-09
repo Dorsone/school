@@ -2,6 +2,9 @@
 
 @section('title')
     O`quvchilar
+    <a href="{{route('admin.students.create')}}" class="btn bg-gradient-info">
+        <i class="fas fa-plus"></i> Yaratish
+    </a>
 @endsection
 
 @section('bread-crumbs')

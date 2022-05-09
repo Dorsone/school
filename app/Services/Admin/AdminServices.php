@@ -78,6 +78,11 @@ class AdminServices
         ];
     }
 
+    public function studentStore($validated)
+    {
+        dd($validated);
+    }
+
     /**
      * @return array
      */

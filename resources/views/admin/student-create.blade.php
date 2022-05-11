@@ -16,39 +16,52 @@
                 <h3 class="card-title">O`quvchi yaratmoq</h3>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="first_name">Ismi</label>
-                        <input name="first_name" type="text" id="first_name" class="form-control">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="last_name">Familiyasi</label>
-                        <input name="last_name" type="text" id="last_name" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label for="phone">Telefon raqami</label>
-                        <input name="phone" type="text" id="phone" class="form-control">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label>Date masks:</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                            </div>
-                            <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" inputmode="numeric">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="first_name">Ismi</label>
+                            <input name="first_name" type="text" id="first_name" class="form-control">
+                            @error('first_name')
+                            <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>
+                            @enderror
                         </div>
-
+                        <div class="form-group col-md-6">
+                            <label for="last_name">Familiyasi</label>
+                            <input name="last_name" type="text" id="last_name" class="form-control">
+                            @error('last_name')
+                            <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>
+                            @enderror
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="level">Sinfi</label>
-                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                            <option selected="selected">Alabama</option>
-                            <option>Alaska</option>
-                        </select>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="phone">Telefon raqami</label>
+                            <input placeholder="998901234567" name="phone" type="text" id="phone" class="form-control">
+                            @error('phone')
+                            <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="born">Tug'ilgan sanasi:</label>
+                            <input name="born" type="date" id="born" class="form-control">
+                            @error('born')
+                            <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="level_id">Sinfi</label>
+                            <select name="level_id" id="level_id" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                @foreach($levels as $level)
+                                    <option value="{{$level->id}}">{{$level->name_uz}}</option>
+                                @endforeach
+                            </select>
+                            @error('level_id')
+                            <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>
+                            @enderror
+                        </div>
                     </div>
-                </div>
+                    <button type="submit" class="btn btn-success float-right">Yaratish</button>
+                </form>
             </div>
             <div class="card-footer">
                 <a class="btn btn-primary" href="{{route('admin.students.index')}}">Ortga</a>

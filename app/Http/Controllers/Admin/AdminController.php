@@ -84,7 +84,7 @@ class AdminController extends Controller
 
     public function moderatorCreate()
     {
-        return view('admin.student-create');
+        return view('admin.moderators-create');
     }
 
     /**

@@ -24,7 +24,7 @@ class ModeratorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'login' => ['required', 'unique:users', 'string', 'min:3', 'max:100'],
+            'login' => ['required', 'unique:users', 'string', 'min:3', 'max:100', 'alpha_dash'],
             'name_uz' => ['required', 'string', 'min:3', 'max:100'],
             'name_ru' => ['required', 'string', 'min:3', 'max:100'],
             'name_en' => ['required', 'string', 'min:3', 'max:100'],

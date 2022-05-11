@@ -105,8 +105,9 @@ Route::middleware('auth')->group(function () {
             'prefix' => 'students',
             'as' => 'students.'
         ], function () {
-            Route::get('create', [AdminController::class, 'studentCreate'])->name('create');
             Route::get('', [AdminController::class, 'students'])->name('index');
+            Route::get('create', [AdminController::class, 'studentCreate'])->name('create');
+            Route::post('store', [AdminController::class, 'studentStore'])->name('store');
             Route::get('{student}', [AdminController::class, 'studentShow'])->name('show');
             Route::delete('{student}', [AdminController::class, 'studentDelete'])->name('delete');
         });

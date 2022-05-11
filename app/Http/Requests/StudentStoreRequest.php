@@ -28,7 +28,8 @@ class StudentStoreRequest extends FormRequest
             'last_name' => ['required', 'string', 'min:3', 'max:50'],
             'phone' => ['required', 'regex:/^998[\d]{9}$/', 'unique:students'],
             'born' => ['required', 'date'],
-            'level_id' => ['required', 'integer', 'exists:levels,id']
+            'level_id' => ['required', 'integer', 'exists:levels,id'],
+            'image' => ['mimes:png,jpg,jpeg', 'max:5120'],
         ];
     }
 }

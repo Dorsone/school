@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ModeratorRequest;
 use App\Http\Requests\StudentStoreRequest;
+use App\Http\Requests\TeacherStoreRequest;
 use App\Models\Article;
 use App\Models\Level;
 use App\Models\Message;
@@ -131,6 +132,16 @@ class AdminController extends Controller
     public function teacherShow(Teacher $teacher)
     {
         return view('admin.teacher-show', compact('teacher'));
+    }
+
+    public function teacherCreate()
+    {
+        return \view('admin.teacher-create');
+    }
+
+    public function teacherStore(TeacherStoreRequest $request)
+    {
+        return $this->adminServices->teacherStore($request->validated());
     }
 
     /**

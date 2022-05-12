@@ -68,6 +68,13 @@ class AdminServices
         ];
     }
 
+    public function teacherStore($validated)
+    {
+        $validated['image'] = 'https://via.placeholder.com/640x480.png/00aa88?text=asperiores';
+        Teacher::query()->create($validated);
+        return redirect()->route('admin.teachers.index');
+    }
+
     /**
      * @return array
      */

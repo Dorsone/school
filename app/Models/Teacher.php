@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Teacher extends SoftDeleting
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
 }

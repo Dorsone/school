@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Student extends Model
+class Student extends SoftDeleting
 {
     use HasFactory;
+
+    protected $fillable = ['first_name', 'last_name', 'phone', 'born', 'level_id', 'status', 'image'];
 
 
     /**

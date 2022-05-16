@@ -29,6 +29,7 @@ class CreateTeachersTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('telegram')->nullable();
             $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

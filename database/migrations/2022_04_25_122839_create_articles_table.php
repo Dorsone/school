@@ -29,6 +29,7 @@ class CreateArticlesTable extends Migration
             $table->string('content_preview_en');
             $table->integer('user_id');
             $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

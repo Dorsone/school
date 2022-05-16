@@ -22,6 +22,7 @@ class CreateReviewsTable extends Migration
             $table->integer('level_id');
             $table->string('role');
             $table->boolean('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

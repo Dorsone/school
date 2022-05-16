@@ -9,6 +9,9 @@ use App\Models\Setting;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
+use App\Services\SpatieMediaService;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 
 class AdminServices
 {
@@ -48,6 +51,14 @@ class AdminServices
         ];
     }
 
+    public function moderatorStore($validated): RedirectResponse
+    {
+        $validated += ['role' => "2"];
+        $validated += ['remember_token' => Str::random(10)];
+        User::query()->create($validated);
+        return redirect()->route('admin.moderators.index');
+    }
+
     /**
      * @return array
      */
@@ -59,6 +70,20 @@ class AdminServices
     }
 
     /**
+     * @param $validated
+     * @return Teacher
+     */
+    public function teacherStore($validated): Teacher
+    {
+        /** @var Teacher $teacher */
+        $teacher = Teacher::query()->create($validated);
+
+        app(SpatieMediaService::class)->uploadImageFormRequest($teacher, $validated['image']);
+
+        return $teacher;
+    }
+
+    /**
      * @return array
      */
     public function students(): array
@@ -66,6 +91,14 @@ class AdminServices
         return [
             'students' => Student::query()->paginate(20),
         ];
+    }
+
+    public function studentStore($validated): RedirectResponse
+    {
+        $validated += ['status' => "1"];
+        $validated += ['image' => 'https://via.placeholder.com/640x480.png/00aa88?text=asperiores'];
+        Student::query()->create($validated);
+        return redirect()->route('admin.students.index');
     }
 
     /**
@@ -96,6 +129,17 @@ class AdminServices
         return [
             'news' => Article::query()->paginate(10),
         ];
+    }
+
+    public function newsStore($validated)
+    {
+        $validated += ['user_id' => auth()->user()->id];
+
+        $article = Article::query()->create($validated);
+
+        app(SpatieMediaService::class)->uploadImageFormRequest($article, $validated['image']);
+
+        return $article;
     }
 
     /**

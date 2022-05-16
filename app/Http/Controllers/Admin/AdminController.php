@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ArticleStoreRequest;
+use App\Http\Requests\ModeratorRequest;
+use App\Http\Requests\StudentStoreRequest;
+use App\Http\Requests\TeacherStoreRequest;
 use App\Models\Article;
+use App\Models\Level;
 use App\Models\Message;
 use App\Models\Reviews;
 use App\Models\Setting;
@@ -14,6 +19,8 @@ use App\Services\Admin\AdminServices;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
 {
@@ -59,12 +66,36 @@ class AdminController extends Controller
     }
 
     /**
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function adminsDelete(User $user): RedirectResponse
+    {
+        $user->delete();
+        return redirect()->route('admin.admins.index');
+    }
+
+    /**
      * @return Application|Factory|View
      */
     public function moderators()
     {
         $data = $this->adminServices->moderators();
         return view('admin.moderators', $data);
+    }
+
+    public function moderatorCreate()
+    {
+        return view('admin.moderators-create');
+    }
+
+    /**
+     * @param ModeratorRequest $moderatorRequest
+     * @return RedirectResponse
+     */
+    public function moderatorStore(ModeratorRequest $moderatorRequest): RedirectResponse
+    {
+        return $this->adminServices->moderatorStore($moderatorRequest->validated());
     }
 
     /**
@@ -74,6 +105,16 @@ class AdminController extends Controller
     public function moderatorShow(User $user)
     {
         return view('admin.admins-show', compact('user'));
+    }
+
+    /**
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function moderatorDelete(User $user): RedirectResponse
+    {
+        $user->delete();
+        return redirect()->route('admin.moderators.index');
     }
 
     /**
@@ -94,6 +135,32 @@ class AdminController extends Controller
         return view('admin.teacher-show', compact('teacher'));
     }
 
+    public function teacherCreate()
+    {
+        return \view('admin.teacher-create');
+    }
+
+    /**
+     * @param TeacherStoreRequest $request
+     * @return RedirectResponse
+     */
+    public function teacherStore(TeacherStoreRequest $request): RedirectResponse
+    {
+        $this->adminServices->teacherStore($request->validated());
+
+        return redirect()->route('admin.teachers.index');
+    }
+
+    /**
+     * @param Teacher $teacher
+     * @return RedirectResponse
+     */
+    public function teacherDelete(Teacher $teacher): RedirectResponse
+    {
+        $teacher->delete();
+        return redirect()->route('admin.teachers.index');
+    }
+
     /**
      * @return Application|Factory|View
      */
@@ -103,6 +170,11 @@ class AdminController extends Controller
         return view('admin.students', $data);
     }
 
+    public function studentStore(StudentStoreRequest $request)
+    {
+        return $this->adminServices->studentStore($request->validated());
+    }
+
     /**
      * @param Student $student
      * @return Application|Factory|View
@@ -110,6 +182,25 @@ class AdminController extends Controller
     public function studentShow(Student $student)
     {
         return view('admin.student-show', compact('student'));
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function studentCreate()
+    {
+        $levels = Level::all();
+        return view('admin.student-create', compact('levels'));
+    }
+
+    /**
+     * @param Student $student
+     * @return RedirectResponse
+     */
+    public function studentDelete(Student $student): RedirectResponse
+    {
+        $student->delete();
+        return redirect()->route('admin.students.index');
     }
 
     /**
@@ -131,6 +222,16 @@ class AdminController extends Controller
     }
 
     /**
+     * @param Reviews $reviews
+     * @return RedirectResponse
+     */
+    public function reviewsDelete(Reviews $reviews): RedirectResponse
+    {
+        $reviews->delete();
+        return redirect()->route('admin.reviews.index');
+    }
+
+    /**
      * @return Application|Factory|View
      */
     public function messages()
@@ -149,12 +250,34 @@ class AdminController extends Controller
     }
 
     /**
+     * @param Message $message
+     * @return RedirectResponse
+     */
+    public function messageDelete(Message $message): RedirectResponse
+    {
+        $message->delete();
+        return redirect()->route('admin.messages.index');
+    }
+
+    /**
      * @return Application|Factory|View
      */
     public function news()
     {
         $data = $this->adminServices->news();
         return view('admin.news', $data);
+    }
+
+    public function newsCreate()
+    {
+        return \view('admin.news-create');
+    }
+
+    public function newsStore(ArticleStoreRequest $request): RedirectResponse
+    {
+        $this->adminServices->newsStore($request->validated());
+
+        return redirect()->route('admin.news.index');
     }
 
     /**
@@ -164,6 +287,16 @@ class AdminController extends Controller
     public function newsShow(Article $article)
     {
         return view('admin.news-show', compact('article'));
+    }
+
+    /**
+     * @param Article $article
+     * @return RedirectResponse
+     */
+    public function newsDelete(Article $article): RedirectResponse
+    {
+        $article->delete();
+        return redirect()->route('admin.news.index');
     }
 
     /**

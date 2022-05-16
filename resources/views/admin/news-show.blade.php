@@ -93,7 +93,7 @@
                 <div class="row">
                     <div class="form-group col-md">
                         <label for="image">Yangilik rasmi</label>
-                        <img class="form-control h-auto w-auto" id="image" src="{{asset($article->image)}}" alt="photo">
+                        <img class="form-control h-auto w-100" id="image" src="{{$article->getFirstMedia()->getUrl()}}" alt="photo">
                     </div>
                 </div>
             </div>

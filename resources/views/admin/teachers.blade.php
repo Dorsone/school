@@ -2,6 +2,9 @@
 
 @section('title')
     O`qituvchilar
+    <a href="{{route('admin.teachers.create')}}" class="btn bg-gradient-info">
+        <i class="fas fa-plus"></i> Yaratish
+    </a>
 @endsection
 
 @section('bread-crumbs')
@@ -38,9 +41,11 @@
                 <a class="btn btn-info btn-sm" href="#">
                     <i class="fas fa-pencil-alt"></i>Edit
                 </a>
-                <a class="btn btn-danger btn-sm" href="#">
-                    <i class="fas fa-trash"></i>Delete
-                </a>
+                <form action="{{route('admin.teachers.delete', $teacher->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>O`chirish</button>
+                </form>
             </td>
         </tr>
     @endforeach

@@ -2,6 +2,9 @@
 
 @section('title')
     Yangiliklar
+    <a href="{{route('admin.news.create')}}" class="btn bg-gradient-info">
+        <i class="fas fa-plus"></i> Yaratish
+    </a>
 @endsection
 
 @section('table-title')
@@ -34,9 +37,11 @@
                 <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
                     <i class="fas fa-pencil-alt"></i> Edit
                 </a>
-                <a class="btn btn-danger btn-sm" href="#">
-                    <i class="fas fa-trash"></i> Delete
-                </a>
+                <form action="{{route('admin.news.delete', $article->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>O`chirish</button>
+                </form>
             </td>
         </tr>
     @endforeach

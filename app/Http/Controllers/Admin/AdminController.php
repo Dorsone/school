@@ -139,9 +139,15 @@ class AdminController extends Controller
         return \view('admin.teacher-create');
     }
 
-    public function teacherStore(TeacherStoreRequest $request)
+    /**
+     * @param TeacherStoreRequest $request
+     * @return RedirectResponse
+     */
+    public function teacherStore(TeacherStoreRequest $request): RedirectResponse
     {
-        return $this->adminServices->teacherStore($request->validated());
+        $this->adminServices->teacherStore($request->validated());
+
+        return redirect()->route('admin.teachers.index');
     }
 
     /**

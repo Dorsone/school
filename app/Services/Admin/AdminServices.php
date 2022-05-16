@@ -9,6 +9,7 @@ use App\Models\Setting;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
+use App\Services\SpatieMediaService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 
@@ -68,11 +69,18 @@ class AdminServices
         ];
     }
 
-    public function teacherStore($validated)
+    /**
+     * @param $validated
+     * @return Teacher
+     */
+    public function teacherStore($validated): Teacher
     {
-        $validated['image'] = 'https://via.placeholder.com/640x480.png/00aa88?text=asperiores';
-        Teacher::query()->create($validated);
-        return redirect()->route('admin.teachers.index');
+        /** @var Teacher $teacher */
+        $teacher = Teacher::query()->create($validated);
+
+        app(SpatieMediaService::class)->uploadImageFormRequest($teacher, $validated['image']);
+
+        return $teacher;
     }
 
     /**

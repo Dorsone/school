@@ -16,12 +16,13 @@
                 <h3 class="card-title">O`qituvchi yaratish</h3>
             </div>
             <div class="card-body">
+                @include('components.errors')
                 <form action="{{route('admin.teachers.store')}}" enctype="multipart/form-data" method="POST">
                     @csrf
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name_uz">Ismi O`zbekchada</label>
-                            <input name="name_uz" type="text" id="name_uz" class="form-control">
+                            <input name="name_uz" type="text" id="name_uz" value="{{old('name_uz')}}" class="form-control">
                             @error('name_uz')
                             <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>
                             @enderror

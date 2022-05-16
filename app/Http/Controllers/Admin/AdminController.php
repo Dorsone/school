@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Http\Requests\ModeratorRequest;
+use App\Http\Requests\SettingsUpdateRequest;
 use App\Http\Requests\StudentStoreRequest;
 use App\Http\Requests\TeacherStoreRequest;
 use App\Models\Article;
@@ -306,6 +307,18 @@ class AdminController extends Controller
     {
         $data = $this->adminServices->settings();
         return view('admin.settings', $data);
+    }
+
+    public function settingsEdit(Setting $setting)
+    {
+        return \view('admin.setting-create', compact('setting'));
+    }
+
+    public function settingsUpdate(SettingsUpdateRequest $request, Setting $setting): RedirectResponse
+    {
+        $this->adminServices->settingUpdate($request->validated(), $setting);
+
+        return redirect()->route('admin.settings.index');
     }
 
     /**

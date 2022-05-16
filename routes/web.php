@@ -148,6 +148,8 @@ Route::middleware('auth')->group(function () {
             'as' => 'settings.'
         ], function () {
             Route::get('', [AdminController::class, 'settings'])->name('index');
+            Route::get('edit/{setting}', [AdminController::class, 'settingsEdit'])->name('edit');
+            Route::put('update/{setting}', [AdminController::class, 'settingsUpdate'])->name('update');
             Route::get('{setting}', [AdminController::class, 'settingShow'])->name('show');
         });
 

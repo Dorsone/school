@@ -12,7 +12,7 @@ class AboutServices
     public function index(): array
     {
         return [
-            'reviews' => $reviews = Reviews::query()->inRandomOrder()->take(5)->get(),
+            'reviews' => Reviews::query()->inRandomOrder()->take(5)->get(),
         ];
     }
 }

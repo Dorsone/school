@@ -2,6 +2,7 @@
 
 namespace App\Services\Admin;
 
+use App\Constants\CacheConstant;
 use App\Models\Article;
 use App\Models\Message;
 use App\Models\Reviews;
@@ -11,6 +12,7 @@ use App\Models\Teacher;
 use App\Models\User;
 use App\Services\SpatieMediaService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class AdminServices
@@ -150,6 +152,14 @@ class AdminServices
         return [
             'settings' => Setting::query()->paginate(10),
         ];
+    }
+
+    public function settingUpdate(array $validated, Setting $setting)
+    {
+        $setting = tap($setting)->update($validated);
+        $setting->save();
+        Cache::put('contacts', Setting::query()->where('section', 'contacts')->get(), CacheConstant::TTL);
+        return $setting;
     }
 
 }

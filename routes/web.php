@@ -137,6 +137,8 @@ Route::middleware('auth')->group(function () {
             'as' => 'news.'
         ], function () {
             Route::get('', [AdminController::class, 'news'])->name('index');
+            Route::get('create', [AdminController::class, 'newsCreate'])->name('create');
+            Route::post('store', [AdminController::class, 'newsStore'])->name('store');
             Route::get('{article}', [AdminController::class, 'newsShow'])->name('show');
             Route::delete('{article}', [AdminController::class, 'newsDelete'])->name('delete');
         });

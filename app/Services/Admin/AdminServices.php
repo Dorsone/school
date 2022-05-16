@@ -131,6 +131,17 @@ class AdminServices
         ];
     }
 
+    public function newsStore($validated)
+    {
+        $validated += ['user_id' => auth()->user()->id];
+
+        $article = Article::query()->create($validated);
+
+        app(SpatieMediaService::class)->uploadImageFormRequest($article, $validated['image']);
+
+        return $article;
+    }
+
     /**
      * @return array
      */

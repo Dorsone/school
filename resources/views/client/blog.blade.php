@@ -17,7 +17,8 @@
                 @foreach($articles->items() as $article)
                     <div class="col-md-6 col-lg-4 ftco-animate fadeInUp ftco-animated">
                         <div class="blog-entry">
-                            <a href="{{route('blog.show', $article->id)}}" class="block-20 d-flex align-items-end" style="background-image: url({{asset($article->image)}});">
+                            @php($image = $article->getFirstMedia())
+                            <a href="{{route('blog.show', $article->id)}}" class="block-20 d-flex align-items-end" style="background-image: url({{$image ? $image->getUrl() : asset($article->image)}});">
                                 <div class="meta-date text-center p-2">
                                     <span class="day">{{$article->created_at->format('j')}}</span>
                                     <span class="mos">{{__('translate.'.$article->created_at->format('F'))}}</span>

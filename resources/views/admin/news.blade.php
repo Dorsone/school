@@ -2,6 +2,9 @@
 
 @section('title')
     Yangiliklar
+    <a href="{{route('admin.news.create')}}" class="btn bg-gradient-info">
+        <i class="fas fa-plus"></i> Yaratish
+    </a>
 @endsection
 
 @section('table-title')

@@ -81,6 +81,7 @@ Route::middleware('auth')->group(function () {
             Route::get('create', [LessonsController::class, 'create'])->name('create');
             Route::post('store', [LessonsController::class, 'store'])->name('store');
             Route::get('{lesson}', [LessonsController::class, 'show'])->name('show');
+            Route::delete('destroy/{lesson}', [LessonsController::class, 'destroy'])->name('destroy');
         });
 
         Route::group([

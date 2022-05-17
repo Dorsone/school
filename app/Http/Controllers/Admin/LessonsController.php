@@ -59,4 +59,14 @@ class LessonsController extends Controller
         $this->lessonsServices->store($request->validated());
         return redirect()->route('admin.lessons.index');
     }
+
+    /**
+     * @param Course $lesson
+     * @return RedirectResponse
+     */
+    public function destroy(Course $lesson): RedirectResponse
+    {
+        $this->lessonsServices->destroy($lesson);
+        return redirect()->route('admin.lessons.index');
+    }
 }

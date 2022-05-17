@@ -25,7 +25,7 @@ class LessonsStoreRequest extends FormRequest
     {
         return [
             'level_id' => ['required', 'integer', 'exists:levels,id'],
-            'image' => ['mimes:png,jpg,jpeg', 'max:5120'],
+            'image' => ['mimes:png,jpg,jpeg', 'max:5120', 'required'],
             'title_uz' => ['required', 'string'],
             'description_uz' => ['required', 'string'],
             'title_ru' => ['required', 'string'],

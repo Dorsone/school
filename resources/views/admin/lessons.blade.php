@@ -38,7 +38,7 @@
                 <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
                     <i class="fas fa-pencil-alt"></i> Edit
                 </a>
-                <form action="" method="POST">
+                <form action="{{route('admin.lessons.destroy', $lesson->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>O`chirish</button>

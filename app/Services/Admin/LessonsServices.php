@@ -15,7 +15,7 @@ class LessonsServices
     public function index(): array
     {
         return [
-            'lessons' => Course::query()->paginate(10),
+            'lessons' => Course::query()->with('level')->paginate(10),
         ];
     }
 

@@ -91,7 +91,7 @@ class AdminServices
     public function students(): array
     {
         return [
-            'students' => Student::query()->paginate(20),
+            'students' => Student::query()->with('level')->paginate(20),
         ];
     }
 
@@ -109,7 +109,7 @@ class AdminServices
     public function reviews(): array
     {
         return [
-            'reviews' => Reviews::query()->paginate(20),
+            'reviews' => Reviews::query()->with('level')->paginate(20),
         ];
     }
 

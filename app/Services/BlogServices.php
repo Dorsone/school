@@ -12,7 +12,7 @@ class BlogServices
     public function index(): array
     {
         return [
-            'articles' => Article::query()->paginate(6),
+            'articles' => Article::query()->with('user')->paginate(6),
         ];
     }
 

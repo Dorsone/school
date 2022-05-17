@@ -78,6 +78,7 @@ Route::middleware('auth')->group(function () {
             'as' => 'lessons.',
         ], function (){
             Route::get('', [LessonsController::class, 'index'])->name('index');
+            Route::get('{lesson}', [LessonsController::class, 'show'])->name('show');
         });
 
         Route::group([

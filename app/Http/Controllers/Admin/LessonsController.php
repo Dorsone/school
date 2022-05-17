@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Services\Admin\LessonsServices;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -32,5 +33,10 @@ class LessonsController extends Controller
     {
         $data = $this->lessonsServices->index();
         return view('admin.lessons', $data);
+    }
+
+    public function show(Course $lesson)
+    {
+        return \view('admin.lesson-show', compact('lesson'));
     }
 }

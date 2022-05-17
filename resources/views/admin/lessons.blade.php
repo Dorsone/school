@@ -32,7 +32,7 @@
             <td>{{substr($lesson->to_time, 0,-3)}}</td>
             <td>{{$lesson->level->name_uz}}</td>
             <td class="project-actions text-right">
-                <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="">
+                <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="{{route('admin.lessons.show', $lesson->id)}}">
                     <i class="fas fa-folder"></i> Batafsil
                 </a>
                 <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">

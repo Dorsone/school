@@ -80,6 +80,15 @@
 </li>
 
 <li class="nav-item">
+    <a href="{{route('admin.lessons.index')}}" class="nav-link">
+        <i class="fas fa-solid fa-comment"></i>
+        <p>
+            Ochiq darslar
+        </p>
+    </a>
+</li>
+
+<li class="nav-item">
     <a href="{{route('admin.settings.index')}}" class="nav-link">
         <i class="fas fa-cogs"></i>
         <p>

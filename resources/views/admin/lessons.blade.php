@@ -2,7 +2,7 @@
 
 @section('title')
     Ochiq Darslar
-    <a href="" class="btn bg-gradient-info">
+    <a href="{{route('admin.lessons.create')}}" class="btn bg-gradient-info">
         <i class="fas fa-plus"></i> Yaratish
     </a>
 @endsection

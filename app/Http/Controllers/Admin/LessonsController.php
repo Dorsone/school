@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LessonsStoreRequest;
 use App\Models\Course;
+use App\Models\Level;
 use App\Services\Admin\LessonsServices;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class LessonsController extends Controller
@@ -38,5 +41,22 @@ class LessonsController extends Controller
     public function show(Course $lesson)
     {
         return \view('admin.lesson-show', compact('lesson'));
+    }
+
+    public function create()
+    {
+        return \view('admin.lesson-create', [
+            'levels' => Level::all(),
+        ]);
+    }
+
+    /**
+     * @param LessonsStoreRequest $request
+     * @return RedirectResponse
+     */
+    public function store(LessonsStoreRequest $request): RedirectResponse
+    {
+        $this->lessonsServices->store($request->validated());
+        return redirect()->route('admin.lessons.index');
     }
 }

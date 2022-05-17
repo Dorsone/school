@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="form-group col-md">
                         <label for="image">O`qituvchi rasmi</label>
-{{--                        <img id="image" src="{{$lesson->getFirstMedia()->getUrl()}}" disabled class="form-control h-auto w-auto" alt="image">--}}
+                        <img id="image" src="{{$lesson->getFirstMedia()->getUrl()}}" disabled class="form-control h-auto w-auto" alt="image">
                     </div>
                 </div>
             </div>

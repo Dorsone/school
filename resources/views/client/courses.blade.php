@@ -19,8 +19,8 @@
                     <div class="col-md-6 course d-lg-flex ftco-animate fadeInUp ftco-animated">
                         <div class="img" style="background-image: url({{asset($course->image)}});"></div>
                         <div class="text bg-light p-4">
-                            <h3><a href="{{route('courses.show', $course->id)}}">{{$course['title_'.app()->getLocale()]}}</a></h3>
-                            <p class="subheading"><span>{{__('translate.class_time')}}:</span> {{substr($course->from_time,0,-3)}} - {{substr($course->to_time,0,-3)}}</p>
+                            <h3><a href="javascript:void(0)">{{$course['title_'.app()->getLocale()]}}</a></h3>
+                            <p class="subheading"><span>{{__('translate.class_time')}}:</span> {{$course->from_time}} - {{$course->to_time}}</p>
                             <p>{{$course['description_'.app()->getLocale()]}}</p>
                         </div>
                     </div>

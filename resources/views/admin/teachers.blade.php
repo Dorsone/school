@@ -16,12 +16,11 @@
 @endsection
 
 @section('table-header')
-    <th style="width: 1%">ID</th>
-    <th style="width: 15%">Ismi</th>
-    <th style="width: 15%">Kim</th>
-    <th style="width: 15%">Tavsifi</th>
-    <th style="width: 8%" class="text-center">Status</th>
-    <th style="width: 20%"></th>
+    <th>ID</th>
+    <th>Ismi</th>
+    <th>Kim</th>
+    <th style="width: 50%">Tavsifi</th>
+    <th></th>
 @endsection
 
 @section('table-body')
@@ -31,9 +30,6 @@
             <td>{{$teacher->name_uz}}</td>
             <td>{{$teacher->role_uz}}</td>
             <td>{{$teacher->description_uz}}</td>
-            <td class="project-state">
-                <span class="badge badge-success">Active</span>
-            </td>
             <td class="project-actions text-right">
                 <a class="btn btn-primary btn-sm" href="{{route('admin.teachers.show', $teacher->id)}}">
                     <i class="fas fa-folder"></i>Batafsil

@@ -22,7 +22,6 @@
     <th>Telefon</th>
     <th>Tug`ilgan sana</th>
     <th>Sinfi</th>
-    <th style="width: 8%" class="text-center">Status</th>
     <th style="width: 20%"></th>
 @endsection
 
@@ -35,15 +34,12 @@
             <td>{{$student->phone}}</td>
             <td>{{$student->born}}</td>
             <td>{{$student->level->name_uz}}</td>
-            <td class="project-state">
-                <span class="badge @if($student->status == 0) badge-danger @else badge-success @endif "> @if($student->status == 0) Ketgan @else O`qiyapti @endif </span>
-            </td>
             <td class="project-actions text-right">
                 <a class="btn btn-primary btn-sm" href="{{route('admin.students.show', $student->id)}}">
                     <i class="fas fa-folder"></i>Batafsil
                 </a>
                 <a class="btn btn-info btn-sm" href="#">
-                    <i class="fas fa-pencil-alt"></i>Edit
+                    <i class="fas fa-pencil-alt"></i>O'zgartirish
                 </a>
                 <form action="{{route('admin.students.delete', $student->id)}}" method="POST">
                     @csrf

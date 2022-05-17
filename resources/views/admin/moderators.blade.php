@@ -16,14 +16,13 @@
 @endsection
 
 @section('table-header')
-    <th style="width: 1%">ID</th>
-    <th style="width: 10%">Login</th>
-    <th style="width: 15%">Ismi UZ</th>
-    <th style="width: 15%">Ismi RU</th>
-    <th style="width: 15%">Ismi EN</th>
+    <th>ID</th>
+    <th>Login</th>
+    <th>Ismi UZ</th>
+    <th>Ismi RU</th>
+    <th>Ismi EN</th>
     <th>Telefon</th>
-    <th style="width: 8%" class="text-center">Status</th>
-    <th style="width: 20%"></th>
+    <th></th>
 @endsection
 
 @section('table-body')
@@ -35,15 +34,12 @@
             <td>{{$moderator->name_ru}}</td>
             <td>{{$moderator->name_en}}</td>
             <td>{{$moderator->phone}}</td>
-            <td class="project-state">
-                <span class="badge badge-success">Active</span>
-            </td>
             <td class="project-actions text-right">
                 <a class="btn btn-primary btn-sm" href="{{route('admin.moderators.show', $moderator->id)}}">
                     <i class="fas fa-folder"></i>Batafsil
                 </a>
                 <a class="btn btn-info btn-sm" href="#">
-                    <i class="fas fa-pencil-alt"></i>Edit
+                    <i class="fas fa-pencil-alt"></i>O'zgartirish
                 </a>
                 <form action="{{route('admin.moderators.delete', $moderator->id)}}" method="POST">
                     @csrf

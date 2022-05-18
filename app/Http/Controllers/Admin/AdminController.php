@@ -8,6 +8,7 @@ use App\Http\Requests\ModeratorRequest;
 use App\Http\Requests\ModeratorUpdateRequest;
 use App\Http\Requests\SettingsUpdateRequest;
 use App\Http\Requests\StudentStoreRequest;
+use App\Http\Requests\StudentUpdateRequest;
 use App\Http\Requests\TeacherStoreRequest;
 use App\Models\Article;
 use App\Models\Level;
@@ -194,7 +195,19 @@ class AdminController extends Controller
         return view('admin.students', $data);
     }
 
-    public function studentStore(StudentStoreRequest $request)
+    public function studentEdit(Student $student)
+    {
+        $data = $this->adminServices->studentEdit($student);
+        return \view('admin.student-edit', $data);
+    }
+
+    public function studentUpdate(Student $student, StudentUpdateRequest $request): RedirectResponse
+    {
+        $this->adminServices->studentUpdate($student, $request->validated());
+        return redirect()->route('admin.students.index');
+    }
+
+    public function studentStore(StudentStoreRequest $request): RedirectResponse
     {
         return $this->adminServices->studentStore($request->validated());
     }

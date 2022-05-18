@@ -4,6 +4,7 @@ namespace App\Services\Admin;
 
 use App\Constants\CacheConstant;
 use App\Models\Article;
+use App\Models\Level;
 use App\Models\Message;
 use App\Models\Reviews;
 use App\Models\Setting;
@@ -11,6 +12,7 @@ use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
 use App\Services\SpatieMediaService;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
@@ -106,6 +108,20 @@ class AdminServices
         $validated += ['status' => "1"];
         Student::query()->create($validated);
         return redirect()->route('admin.students.index');
+    }
+
+    public function studentEdit($model): array
+    {
+        return [
+            'student' => $model,
+            'levels' => Level::all(),
+        ];
+    }
+
+    public function studentUpdate(Model $model, array $validated): Model
+    {
+        $model->update($validated);
+        return $model;
     }
 
     /**

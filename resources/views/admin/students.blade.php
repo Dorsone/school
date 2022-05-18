@@ -38,7 +38,7 @@
                 <a class="btn btn-primary btn-sm" href="{{route('admin.students.show', $student->id)}}">
                     <i class="fas fa-folder"></i>Batafsil
                 </a>
-                <a class="btn btn-info btn-sm" href="#">
+                <a class="btn btn-info btn-sm" href="{{route('admin.students.edit', $student->id)}}">
                     <i class="fas fa-pencil-alt"></i>O'zgartirish
                 </a>
                 <form action="{{route('admin.students.delete', $student->id)}}" method="POST">

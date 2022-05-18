@@ -124,6 +124,8 @@ Route::middleware('auth')->group(function () {
             'as' => 'students.'
         ], function () {
             Route::get('', [AdminController::class, 'students'])->name('index');
+            Route::get('edit/{student}', [AdminController::class, 'studentEdit'])->name('edit');
+            Route::put('update/{student}', [AdminController::class, 'studentUpdate'])->name('update');
             Route::get('create', [AdminController::class, 'studentCreate'])->name('create');
             Route::post('store', [AdminController::class, 'studentStore'])->name('store');
             Route::get('{student}', [AdminController::class, 'studentShow'])->name('show');

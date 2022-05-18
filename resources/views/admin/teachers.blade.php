@@ -34,8 +34,8 @@
                 <a class="btn btn-primary btn-sm" href="{{route('admin.teachers.show', $teacher->id)}}">
                     <i class="fas fa-folder"></i>Batafsil
                 </a>
-                <a class="btn btn-info btn-sm" href="#">
-                    <i class="fas fa-pencil-alt"></i>Edit
+                <a class="btn btn-info btn-sm" href="{{route('admin.teachers.edit', $teacher->id)}}">
+                    <i class="fas fa-pencil-alt"></i>O'zgartirish
                 </a>
                 <form action="{{route('admin.teachers.delete', $teacher->id)}}" method="POST">
                     @csrf

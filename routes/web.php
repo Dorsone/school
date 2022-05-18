@@ -113,6 +113,8 @@ Route::middleware('auth')->group(function () {
             'as' => 'teachers.'
         ], function () {
             Route::get('', [AdminController::class, 'teachers'])->name('index');
+            Route::get('edit/{teacher}', [AdminController::class, 'teacherEdit'])->name('edit');
+            Route::put('update/{teacher}', [AdminController::class, 'teacherUpdate'])->name('update');
             Route::get('create', [AdminController::class, 'teacherCreate'])->name('create');
             Route::post('store', [AdminController::class, 'teacherStore'])->name('store');
             Route::get('{teacher}', [AdminController::class, 'teacherShow'])->name('show');

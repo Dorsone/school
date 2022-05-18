@@ -10,6 +10,7 @@ use App\Http\Requests\SettingsUpdateRequest;
 use App\Http\Requests\StudentStoreRequest;
 use App\Http\Requests\StudentUpdateRequest;
 use App\Http\Requests\TeacherStoreRequest;
+use App\Http\Requests\TeacherUpdateRequest;
 use App\Models\Article;
 use App\Models\Level;
 use App\Models\Message;
@@ -176,6 +177,17 @@ class AdminController extends Controller
         return redirect()->route('admin.teachers.index');
     }
 
+    public function teacherEdit(Teacher $teacher)
+    {
+        return \view('admin.teacher-edit', compact('teacher'));
+    }
+
+    public function teacherUpdate(Teacher $teacher, TeacherUpdateRequest $request)
+    {
+        $this->adminServices->teacherUpdate($teacher, $request->validated());
+        return redirect()->route('admin.teachers.index');
+    }
+
     /**
      * @param Teacher $teacher
      * @return RedirectResponse
@@ -183,6 +195,7 @@ class AdminController extends Controller
     public function teacherDelete(Teacher $teacher): RedirectResponse
     {
         $teacher->delete();
+        $teacher->getFirstMedia()->delete();
         return redirect()->route('admin.teachers.index');
     }
 

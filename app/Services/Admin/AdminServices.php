@@ -79,6 +79,17 @@ class AdminServices
         ];
     }
 
+    public function teacherUpdate(Model $model, array $validated)
+    {
+        if (isset($validated['image']))
+        {
+            $model->getFirstMedia()->delete();
+            app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);
+        }
+        $model->update($validated);
+        return $model;
+    }
+
     /**
      * @param $validated
      * @return Teacher

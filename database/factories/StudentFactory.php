@@ -22,7 +22,6 @@ class StudentFactory extends Factory
             'status' => $this->faker->boolean(),
             'born' => $this->faker->date(),
             'level_id' => $level->id,
-            'image' => $this->faker->imageUrl(),
         ];
     }
 }

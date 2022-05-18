@@ -104,7 +104,6 @@ class AdminServices
     public function studentStore($validated): RedirectResponse
     {
         $validated += ['status' => "1"];
-        $validated += ['image' => 'https://via.placeholder.com/640x480.png/00aa88?text=asperiores'];
         Student::query()->create($validated);
         return redirect()->route('admin.students.index');
     }

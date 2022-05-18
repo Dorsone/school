@@ -62,18 +62,6 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label for="customFile">Rasmni yuklang</label>
-                            <div class="custom-file">
-                                <input accept="image/png, image/jpg, image/jpeg" name="image" type="file" class="custom-file-input @error('image') is-invalid @enderror" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                                @error('image')
-                                <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-success float-right">Yaratish</button>
                     </div>

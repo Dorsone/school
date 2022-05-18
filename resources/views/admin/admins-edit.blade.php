@@ -16,7 +16,7 @@
                 <h3 class="card-title">Moderator O'zgartirish</h3>
             </div>
             <div class="card-body">
-                <form action="{{route('admin.moderators.update', $user->id)}}" method="POST">
+                <form action="{{route('admin.admins.update', $user->id)}}" method="POST">
                     @csrf
                     @method('put')
                     <div class="row">

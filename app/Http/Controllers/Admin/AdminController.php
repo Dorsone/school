@@ -58,6 +58,17 @@ class AdminController extends Controller
         return view('admin.admins', $data);
     }
 
+    public function adminEdit(User $user)
+    {
+        return \view('admin.admins-edit', compact('user'));
+    }
+
+    public function adminUpdate(User $user, ModeratorUpdateRequest $request): RedirectResponse
+    {
+        $this->adminServices->moderatorUpdate($user, $request->validated());
+        return redirect()->route('admin.admins.index');
+    }
+
     /**
      * @param User $user
      * @return Application|Factory|View

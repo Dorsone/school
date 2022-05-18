@@ -35,7 +35,7 @@
                 <a class="btn btn-primary btn-sm" href="{{route('admin.admins.show', $admin->id)}}">
                     <i class="fas fa-folder"></i>Batafsil
                 </a>
-                <a class="btn btn-info btn-sm" href="#">
+                <a class="btn btn-info btn-sm" href="{{route('admin.admins.edit', $admin->id)}}">
                     <i class="fas fa-pencil-alt"></i>O'zgartirish
                 </a>
             </td>

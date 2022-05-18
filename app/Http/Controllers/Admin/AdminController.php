@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Http\Requests\ModeratorRequest;
+use App\Http\Requests\ModeratorUpdateRequest;
 use App\Http\Requests\SettingsUpdateRequest;
 use App\Http\Requests\StudentStoreRequest;
 use App\Http\Requests\TeacherStoreRequest;
@@ -83,6 +84,17 @@ class AdminController extends Controller
     {
         $data = $this->adminServices->moderators();
         return view('admin.moderators', $data);
+    }
+
+    public function moderatorEdit(User $user)
+    {
+        return \view('admin.moderator-edit', compact('user'));
+    }
+
+    public function moderatorUpdate(User $user, ModeratorUpdateRequest $request): RedirectResponse
+    {
+        $this->adminServices->moderatorUpdate($user, $request->validated());
+        return redirect()->route('admin.moderators.index');
     }
 
     public function moderatorCreate()

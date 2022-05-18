@@ -100,6 +100,8 @@ Route::middleware('auth')->group(function () {
             Route::get('', [AdminController::class, 'moderators'])->name('index');
             Route::get('create', [AdminController::class, 'moderatorCreate'])->name('create');
             Route::post('store', [AdminController::class, 'moderatorStore'])->name('store');
+            Route::get('edit/{user}', [AdminController::class, 'moderatorEdit'])->name('edit');
+            Route::put('update/{user}', [AdminController::class, 'moderatorUpdate'])->name('update');
             Route::get('{user}', [AdminController::class, 'moderatorShow'])->name('show');
             Route::delete('{user}', [AdminController::class, 'moderatorDelete'])->name('delete');
         });

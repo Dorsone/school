@@ -38,7 +38,7 @@
                 <a class="btn btn-primary btn-sm" href="{{route('admin.moderators.show', $moderator->id)}}">
                     <i class="fas fa-folder"></i>Batafsil
                 </a>
-                <a class="btn btn-info btn-sm" href="#">
+                <a class="btn btn-info btn-sm" href="{{route('admin.moderators.edit', $moderator->id)}}">
                     <i class="fas fa-pencil-alt"></i>O'zgartirish
                 </a>
                 <form action="{{route('admin.moderators.delete', $moderator->id)}}" method="POST">

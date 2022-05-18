@@ -61,6 +61,12 @@ class AdminServices
         return redirect()->route('admin.moderators.index');
     }
 
+    public function moderatorUpdate($user, $validated)
+    {
+        $user->update($validated);
+        return $user;
+    }
+
     /**
      * @return array
      */

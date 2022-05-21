@@ -141,8 +141,15 @@ class AdminServices
     public function reviews(): array
     {
         return [
-            'reviews' => Reviews::query()->with('level')->paginate(20),
+            'reviews' => Reviews::query()->where('status', 0)->with('level')->paginate(20),
         ];
+    }
+
+    public function reviewsSubmit(Model $model): Model
+    {
+        $model->status = 1;
+        $model->save();
+        return $model;
     }
 
     /**

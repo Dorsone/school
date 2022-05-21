@@ -140,6 +140,7 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('', [AdminController::class, 'reviews'])->name('index');
             Route::get('{reviews}', [AdminController::class, 'reviewsShow'])->name('show');
+            Route::get('submit/{reviews}', [AdminController::class, 'reviewsSubmit'])->name('submit');
             Route::delete('{reviews}', [AdminController::class, 'reviewsDelete'])->name('delete');
         });
 

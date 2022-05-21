@@ -35,9 +35,6 @@
                 <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="{{route('admin.reviews.show', $review->id)}}">
                     <i class="fas fa-folder"></i> Batafsil
                 </a>
-                <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
-                    <i class="fas fa-pencil-alt"></i> O'zgartirish
-                </a>
                 <form action="{{route('admin.reviews.delete', $review->id)}}" method="POST">
                     @csrf
                     @method('DELETE')

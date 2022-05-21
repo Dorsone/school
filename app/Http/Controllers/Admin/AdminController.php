@@ -262,6 +262,12 @@ class AdminController extends Controller
         return view('admin.reviews', $data);
     }
 
+    public function reviewsSubmit(Reviews $reviews): RedirectResponse
+    {
+        $this->adminServices->reviewsSubmit($reviews);
+        return redirect()->route('admin.reviews.index');
+    }
+
     /**
      * @param Reviews $reviews
      * @return Application|Factory|View

@@ -52,7 +52,10 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a class="btn btn-primary" href="{{route('admin.teachers.index')}}">Ortga</a>
+                <a class="btn btn-primary" href="{{route('admin.reviews.index')}}">Ortga</a>
+                <a class="btn btn-info" href="{{route('admin.reviews.submit', $reviews->id)}}">
+                    <i class="fas fa-solid fa-check"></i> Tasdiqlash
+                </a>
             </div>
         </div>
     </div>

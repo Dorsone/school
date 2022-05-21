@@ -79,7 +79,7 @@ class AdminServices
         ];
     }
 
-    public function teacherUpdate(Model $model, array $validated)
+    public function teacherUpdate(Model $model, array $validated): Model
     {
         if (isset($validated['image']))
         {
@@ -181,6 +181,17 @@ class AdminServices
         app(SpatieMediaService::class)->uploadImageFormRequest($article, $validated['image']);
 
         return $article;
+    }
+
+    public function newsUpdate(array $validated, Article $model)
+    {
+        if(isset($validated['image']))
+        {
+            $model->getFirstMedia()->delete();
+            app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);
+        }
+        $model->update($validated);
+        return $model;
     }
 
     /**

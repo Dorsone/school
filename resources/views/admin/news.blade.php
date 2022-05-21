@@ -34,10 +34,10 @@
                 <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="{{route('admin.news.show', $article->id)}}">
                     <i class="fas fa-folder"></i> Batafsil
                 </a>
-                <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
+                <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="{{route('admin.news.edit', $article->id)}}">
                     <i class="fas fa-pencil-alt"></i> O'zgartirish
                 </a>
-                <form action="{{route('admin.news.delete', $article->id)}}" method="POST">
+                <form style="float: right" action="{{route('admin.news.delete', $article->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>O`chirish</button>

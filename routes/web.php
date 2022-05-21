@@ -158,6 +158,8 @@ Route::middleware('auth')->group(function () {
             'as' => 'news.'
         ], function () {
             Route::get('', [AdminController::class, 'news'])->name('index');
+            Route::get('edit/{article}', [AdminController::class, 'newsEdit'])->name('edit');
+            Route::put('update/{article}', [AdminController::class, 'newsUpdate'])->name('update');
             Route::get('create', [AdminController::class, 'newsCreate'])->name('create');
             Route::post('store', [AdminController::class, 'newsStore'])->name('store');
             Route::get('{article}', [AdminController::class, 'newsShow'])->name('show');

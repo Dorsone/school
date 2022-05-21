@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleStoreRequest;
+use App\Http\Requests\ArticleUpdateRequest;
 use App\Http\Requests\ModeratorRequest;
 use App\Http\Requests\ModeratorUpdateRequest;
 use App\Http\Requests\SettingsUpdateRequest;
@@ -323,6 +324,23 @@ class AdminController extends Controller
         $data = $this->adminServices->news();
         return view('admin.news', $data);
     }
+
+    /**
+     * @param Article $article
+     * @return Application|Factory|View
+     */
+    public function newsEdit(Article $article)
+    {
+        $article = $article->load('user');
+        return \view('admin.news-edit', compact('article'));
+    }
+
+    public function newsUpdate(ArticleUpdateRequest $request, Article $article): RedirectResponse
+    {
+        $this->adminServices->newsUpdate($request->validated(), $article);
+        return redirect()->route('admin.news.index');
+    }
+
 
     public function newsCreate()
     {

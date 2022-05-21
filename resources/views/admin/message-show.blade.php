@@ -45,6 +45,11 @@
             </div>
             <div class="card-footer">
                 <a class="btn btn-primary" href="{{route('admin.messages.index')}}">Ortga</a>
+                <form style="float: right;" action="{{route('admin.messages.delete', $message->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>Ko'rildi</button>
+                </form>
             </div>
         </div>
     </div>

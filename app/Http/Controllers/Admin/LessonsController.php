@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LessonsStoreRequest;
+use App\Http\Requests\LessonUpdateRequest;
 use App\Models\Course;
 use App\Models\Level;
 use App\Services\Admin\LessonsServices;
@@ -57,6 +58,20 @@ class LessonsController extends Controller
     public function store(LessonsStoreRequest $request): RedirectResponse
     {
         $this->lessonsServices->store($request->validated());
+        return redirect()->route('admin.lessons.index');
+    }
+
+    public function edit(Course $lesson)
+    {
+        return \view('admin.lesson-update', [
+            'lesson' => $lesson,
+            'levels' => Level::query()->get(),
+        ]);
+    }
+
+    public function update(Course $lesson, LessonUpdateRequest $request): RedirectResponse
+    {
+        $this->lessonsServices->update($lesson, $request->validated());
         return redirect()->route('admin.lessons.index');
     }
 

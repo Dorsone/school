@@ -78,6 +78,8 @@ Route::middleware('auth')->group(function () {
             'as' => 'lessons.',
         ], function (){
             Route::get('', [LessonsController::class, 'index'])->name('index');
+            Route::get('edit/{lesson}', [LessonsController::class, 'edit'])->name('edit');
+            Route::put('update/{lesson}', [LessonsController::class, 'update'])->name('update');
             Route::get('create', [LessonsController::class, 'create'])->name('create');
             Route::post('store', [LessonsController::class, 'store'])->name('store');
             Route::get('{lesson}', [LessonsController::class, 'show'])->name('show');

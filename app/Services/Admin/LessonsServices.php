@@ -28,6 +28,17 @@ class LessonsServices
         return $lesson;
     }
 
+    public function update(Model $model, array $validated): Model
+    {
+        if (isset($validated['image']))
+        {
+            $model->getFirstMedia()->delete();
+            app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);
+        }
+        $model->update($validated);
+        return $model;
+    }
+
     /**
      * @param $model
      * @return void

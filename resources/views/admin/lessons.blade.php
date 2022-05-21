@@ -35,8 +35,8 @@
                 <a style="margin-bottom: 5px" class="btn btn-primary btn-sm" href="{{route('admin.lessons.show', $lesson->id)}}">
                     <i class="fas fa-folder"></i> Batafsil
                 </a>
-                <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="#">
-                    <i class="fas fa-pencil-alt"></i> Edit
+                <a style="margin-bottom: 5px" class="btn btn-info btn-sm" href="{{route('admin.lessons.edit', $lesson->id)}}">
+                    <i class="fas fa-pencil-alt"></i> O'zgartirish
                 </a>
                 <form action="{{route('admin.lessons.destroy', $lesson->id)}}" method="POST">
                     @csrf

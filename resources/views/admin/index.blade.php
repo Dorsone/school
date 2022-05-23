@@ -24,6 +24,7 @@
                 <a href="{{route('admin.reviews.index')}}" class="small-box-footer">Batafsil <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
+    @if(auth()->user()->role == 3)
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -55,12 +56,12 @@
             </div>
         </div>
         <!-- ./col -->
+    @endif
         <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
                 <div class="inner">
                     <h3>{{$messages}}</h3>
-
                     <p>Xabarlar</p>
                 </div>
                 <div class="icon">

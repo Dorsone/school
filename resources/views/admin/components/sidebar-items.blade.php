@@ -1,46 +1,48 @@
-<li class="nav-item">
-    <a href="#" class="nav-link">
-        <i class="fas fa-solid fa-user-lock"></i>
-        <p>
-            Foydalanuvchilar
-            <i class="fas fa-angle-left right"></i>
-        </p>
-    </a>
-    <ul class="nav nav-treeview">
-        <li class="nav-item">
-            <a href="{{route('admin.admins.index')}}" class="nav-link">
-                <i class="fas fa-solid fa-user-check"></i>
-                <p>
-                    Adminlar
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{route('admin.moderators.index')}}" class="nav-link">
-                <i class="fas fa-solid fa-user-edit"></i>
-                <p>
-                    Moderatorlar
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{route('admin.teachers.index')}}" class="nav-link">
-                <i class="fas fa-regular fa-user-tie"></i>
-                <p>
-                    O`qituvchilar
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{route('admin.students.index')}}" class="nav-link">
-                <i class="fas fa-regular fa-user-graduate"></i>
-                <p>
-                    O`quvchilar
-                </p>
-            </a>
-        </li>
-    </ul>
-</li>
+@if(auth()->user()->role == 3)
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="fas fa-solid fa-user-lock"></i>
+            <p>
+                Foydalanuvchilar
+                <i class="fas fa-angle-left right"></i>
+            </p>
+        </a>
+        <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{route('admin.admins.index')}}" class="nav-link">
+                    <i class="fas fa-solid fa-user-check"></i>
+                    <p>
+                        Adminlar
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.moderators.index')}}" class="nav-link">
+                    <i class="fas fa-solid fa-user-edit"></i>
+                    <p>
+                        Moderatorlar
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.teachers.index')}}" class="nav-link">
+                    <i class="fas fa-regular fa-user-tie"></i>
+                    <p>
+                        O`qituvchilar
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.students.index')}}" class="nav-link">
+                    <i class="fas fa-regular fa-user-graduate"></i>
+                    <p>
+                        O`quvchilar
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </li>
+@endif
 
 <li class="nav-item">
     <a href="#" class="nav-link">
@@ -88,7 +90,8 @@
     </a>
 </li>
 
-<li class="nav-item">
+@if(auth()->user()->role == 3)
+    <li class="nav-item">
     <a href="{{route('admin.settings.index')}}" class="nav-link">
         <i class="fas fa-cogs"></i>
         <p>
@@ -96,3 +99,4 @@
         </p>
     </a>
 </li>
+@endif

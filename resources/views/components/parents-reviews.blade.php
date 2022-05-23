@@ -3,7 +3,7 @@
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
                 <h2 class="mb-4"><span>{{__('sections/review.title.0')}}</span> {{__('sections/review.title.1')}}</h2>
-                <p>{{__('sections/review.body')}}</p>
+{{--                <p>{{__('sections/review.body')}}</p>--}}
             </div>
         </div>
         <div class="row ftco-animate justify-content-center">

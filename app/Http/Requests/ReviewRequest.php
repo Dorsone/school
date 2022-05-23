@@ -28,6 +28,7 @@ class ReviewRequest extends FormRequest
             'last_name' => 'required|string|min:3|max:255',
             'level_id' => 'required|integer|exists:levels,id',
             'phone' => 'required|regex:/^998[\d]{9}$/',
+            'role' => 'required|in:Mother,Father,Other',
             'message' => 'required|string|max:255',
         ];
     }

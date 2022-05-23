@@ -58,7 +58,6 @@ class AdminServices
     public function moderatorStore($validated): RedirectResponse
     {
         $validated += ['role' => "2"];
-        $validated += ['remember_token' => Str::random(10)];
         User::query()->create($validated);
         return redirect()->route('admin.moderators.index');
     }

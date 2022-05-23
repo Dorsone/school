@@ -35,11 +35,25 @@
                     </div>
                     <div class="d-md-flex">
                         <div class="form-group">
-                            <textarea name="message" id="" cols="30" rows="2" class="form-control" placeholder="{{__('sections/request.content.message')}}"></textarea>
+                            <div class="form-field">
+                                <div class="select-wrap">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <select name="role" class="form-control">
+                                        <option value="#">{{__('sections/request.content.role')}}</option>
+                                        @php($roles = ['Mother', 'Father', 'Other'])
+                                        @foreach($roles as  $role)
+                                            <option style="color: #333333" value="{{$role}}">{{__('sections/request.content.'.$role)}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group ml-md-4">
-                            <input type="submit" value="{{__('sections/request.title')}}" class="btn btn-secondary py-3 px-4">
+                            <textarea name="message" id="" cols="30" rows="2" class="form-control" placeholder="{{__('sections/request.content.message')}}"></textarea>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="{{__('sections/request.title')}}" class="btn btn-secondary py-3 px-4">
                     </div>
                 </form>
             </div>

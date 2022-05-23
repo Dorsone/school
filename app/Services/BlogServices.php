@@ -23,7 +23,7 @@ class BlogServices
     public function show($article): array
     {
         return [
-            'popular' => Article::query()->inRandomOrder()->take(3)->get(),
+            'populars' => Article::query()->inRandomOrder()->take(3)->get(),
             'article' => $article,
         ];
     }

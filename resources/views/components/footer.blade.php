@@ -18,7 +18,7 @@
                     <h2 class="ftco-heading-2">{{__('sections/footer.recent_blog')}}</h2>
                     @foreach($footer_articles as $article)
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url({{asset($article->image)}});"></a>
+                            <a class="blog-img mr-4" style="background-image: url({{$article->getFirstMedia()->getUrl()}});"></a>
                             <div class="text">
                                 <h3 class="heading"><a href="{{route('blog.show', $article->id)}}">{{$article['title_preview_'.app()->getLocale()]}}</a></h3>
                                 <div class="meta">

@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h2>{{__('home-parallax.title')}}</h2>
-                <p class="mb-0">{{__('home-parallax.body')}}</p>
+{{--                <h2>{{__('home-parallax.title')}}</h2>--}}
+{{--                <p class="mb-0">{{__('home-parallax.body')}}</p>--}}
             </div>
         </div>
     </div>

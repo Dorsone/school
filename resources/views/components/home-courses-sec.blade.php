@@ -9,7 +9,7 @@
         <div class="row">
             @foreach($courses as $course)
                 <div class="col-md-6 course d-lg-flex ftco-animate">
-                    <div class="img" style="background-image: url({{asset($course->image)}});"></div>
+                    <img src="{{$course->getFirstMedia()->getUrl()}}" class="img" alt="">
                     <div class="text bg-light p-4">
                         <h3><a href="{{route('courses.show', $course->id)}}">{{$course['title_'.app()->getLocale()]}}</a></h3>
                         <p class="subheading"><span>Class time:</span> {{$course->from_time}} - {{$course->to_time}}</p>

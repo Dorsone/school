@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LessonsController;
+use App\Http\Controllers\Admin\LevelsController;
 use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\BlogController;
 use App\Http\Controllers\Client\ContactController;
@@ -72,6 +73,8 @@ Route::middleware('auth')->group(function () {
         'as' => 'admin.'
     ], function () {
         Route::get('', [AdminController::class, 'index'])->name('index');
+
+        Route::resource('levels', LevelsController::class);
 
         Route::group([
             'prefix' => 'lessons',

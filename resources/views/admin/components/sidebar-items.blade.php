@@ -90,6 +90,15 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{route('admin.levels.index')}}" class="nav-link">
+        <i class="fas fa-solid fa-users"></i>
+        <p>
+            Sinflar
+        </p>
+    </a>
+</li>
+
 @if(auth()->user()->role == 3)
     <li class="nav-item">
     <a href="{{route('admin.settings.index')}}" class="nav-link">

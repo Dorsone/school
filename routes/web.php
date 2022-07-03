@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LessonsController;
 use App\Http\Controllers\Admin\LevelsController;
+use App\Http\Controllers\Admin\ModeratorController;
 use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\BlogController;
 use App\Http\Controllers\Client\ContactController;
@@ -104,13 +105,13 @@ Route::middleware('auth')->group(function () {
             'prefix' => 'moderators',
             'as' => 'moderators.'
         ], function () {
-            Route::get('', [AdminController::class, 'moderators'])->name('index');
-            Route::get('create', [AdminController::class, 'moderatorCreate'])->name('create');
-            Route::post('store', [AdminController::class, 'moderatorStore'])->name('store');
-            Route::get('edit/{user}', [AdminController::class, 'moderatorEdit'])->name('edit');
-            Route::put('update/{user}', [AdminController::class, 'moderatorUpdate'])->name('update');
-            Route::get('{user}', [AdminController::class, 'moderatorShow'])->name('show');
-            Route::delete('{user}', [AdminController::class, 'moderatorDelete'])->name('delete');
+            Route::get('', [ModeratorController::class, 'moderators'])->name('index');
+            Route::get('create', [ModeratorController::class, 'moderatorCreate'])->name('create');
+            Route::post('store', [ModeratorController::class, 'moderatorStore'])->name('store');
+            Route::get('edit/{user}', [ModeratorController::class, 'moderatorEdit'])->name('edit');
+            Route::put('update/{user}', [ModeratorController::class, 'moderatorUpdate'])->name('update');
+            Route::get('{user}', [ModeratorController::class, 'moderatorShow'])->name('show');
+            Route::delete('{user}', [ModeratorController::class, 'moderatorDelete'])->name('delete');
         });
 
         Route::group([

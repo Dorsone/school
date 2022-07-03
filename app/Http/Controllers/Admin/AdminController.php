@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Http\Requests\ArticleUpdateRequest;
-use App\Http\Requests\ModeratorRequest;
 use App\Http\Requests\ModeratorUpdateRequest;
 use App\Http\Requests\SettingsUpdateRequest;
 use App\Http\Requests\StudentStoreRequest;
@@ -89,59 +88,6 @@ class AdminController extends Controller
     {
         $user->delete();
         return redirect()->route('admin.admins.index');
-    }
-
-    /**
-     * @return Application|Factory|View
-     */
-    public function moderators()
-    {
-        $data = $this->adminServices->moderators();
-        return view('admin.moderators', $data);
-    }
-
-    public function moderatorEdit(User $user)
-    {
-        return \view('admin.moderator-edit', compact('user'));
-    }
-
-    public function moderatorUpdate(User $user, ModeratorUpdateRequest $request): RedirectResponse
-    {
-        $this->adminServices->moderatorUpdate($user, $request->validated());
-        return redirect()->route('admin.moderators.index');
-    }
-
-    public function moderatorCreate()
-    {
-        return view('admin.moderators-create');
-    }
-
-    /**
-     * @param ModeratorRequest $moderatorRequest
-     * @return RedirectResponse
-     */
-    public function moderatorStore(ModeratorRequest $moderatorRequest): RedirectResponse
-    {
-        return $this->adminServices->moderatorStore($moderatorRequest->validated());
-    }
-
-    /**
-     * @param User $user
-     * @return Application|Factory|View
-     */
-    public function moderatorShow(User $user)
-    {
-        return view('admin.admins-show', compact('user'));
-    }
-
-    /**
-     * @param User $user
-     * @return RedirectResponse
-     */
-    public function moderatorDelete(User $user): RedirectResponse
-    {
-        $user->delete();
-        return redirect()->route('admin.moderators.index');
     }
 
     /**

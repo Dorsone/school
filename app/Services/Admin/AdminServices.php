@@ -48,29 +48,6 @@ class AdminServices
     /**
      * @return array
      */
-    public function moderators(): array
-    {
-        return [
-            'moderators' => User::query()->where('role', '2')->paginate(10),
-        ];
-    }
-
-    public function moderatorStore($validated): RedirectResponse
-    {
-        $validated += ['role' => "2"];
-        User::query()->create($validated);
-        return redirect()->route('admin.moderators.index');
-    }
-
-    public function moderatorUpdate($user, $validated)
-    {
-        $user->update($validated);
-        return $user;
-    }
-
-    /**
-     * @return array
-     */
     public function teachers(): array
     {
         return [

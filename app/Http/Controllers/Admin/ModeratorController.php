@@ -11,7 +11,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class ModeratorController extends Controller
 {
@@ -87,7 +86,7 @@ class ModeratorController extends Controller
      * @param User $user
      * @return RedirectResponse
      */
-    public function moderatorDestroy(User $user): RedirectResponse
+    public function moderatorDelete(User $user): RedirectResponse
     {
         $user->delete();
         return redirect()->route('admin.moderators.index');

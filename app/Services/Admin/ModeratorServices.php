@@ -25,6 +25,7 @@ class ModeratorServices
     public function moderatorStore($validated): RedirectResponse
     {
         $validated += ['role' => "2"];
+        $validated['password'] = bcrypt($validated['password']);
         User::query()->create($validated);
         return redirect()->route('admin.moderators.index');
     }

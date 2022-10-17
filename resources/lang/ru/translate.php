@@ -17,5 +17,7 @@ return [
     'Mother' => 'Мама',
     'Father' => 'Папа',
     'Other' => 'Другое',
-    'chool' => 'Школа',
+    'school' => 'Школа',
+    'father' => 'Отец',
+    'mother' => 'Мать',
 ];

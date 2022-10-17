@@ -20,10 +20,11 @@ class SettingSeeder extends Seeder
 
     public function settings()
     {
-        foreach (SettingsConstants::contacts() as $key => $contact) {
+        $settingsConstants = new SettingsConstants();
+        foreach ($settingsConstants->contacts() as $key => $contact) {
             Setting::query()->create($contact);
-            Setting::query()->create(SettingsConstants::social()[$key]);
-            Setting::query()->create(SettingsConstants::experience()[$key]);
+            Setting::query()->create($settingsConstants->social()[$key]);
+            Setting::query()->create($settingsConstants->experience()[$key]);
         }
     }
 }

@@ -22,7 +22,7 @@
         <h3>Popular Articles</h3>
         @foreach($populars as $popular)
             <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({{$popular->getFirstMedia()->getUrl()}});"></a>
+                <a class="blog-img mr-4" style="background-image: url({{$popular->getFirstMedia() !== null ? $popular->getFirstMedia()->getUrl() : 'https://picsum.photos/200/300'}});"></a>
                 <div class="text">
                     <h3 class="heading"><a href="{{route('blog.show', $popular->id)}}">{{$popular['title_preview_'.app()->getLocale()]}}</a></h3>
                     <div class="meta">

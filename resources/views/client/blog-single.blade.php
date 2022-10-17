@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
                     <h2 class="mb-3">{{$article['title_'.app()->getLocale()]}}</h2><p>
-                        <img src="{{$article->getFirstMedia()->getUrl()}}" alt="" class="img-fluid">
+                        <img src="{{$article->getFirstMedia() !== null ? $article->getFirstMedia()->getUrl() : 'https://picsum.photos/1280/980'}}" alt="" class="img-fluid">
                     </p>
                     <p>{{$article['content_'.app()->getLocale()]}}</p>
 

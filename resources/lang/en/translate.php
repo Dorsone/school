@@ -18,4 +18,6 @@ return [
     'Father' => 'Father',
     'Other' => 'Другое',
     'school' => 'School',
+    'father' => 'Father',
+    'mother' => 'Mother',
 ];

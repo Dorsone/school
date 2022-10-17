@@ -17,7 +17,7 @@
             <div class="row">
                 @foreach($courses->items() as $course)
                     <div class="col-md-6 course d-lg-flex ftco-animate fadeInUp ftco-animated">
-                        <img src="{{$course->getFirstMedia()->getUrl()}}" class="img" alt="">
+                        <img src="{{$course->getFirstMedia() !== null ? $course->getFirstMedia()->getUrl() : 'https://picsum.photos/200/300'}}" class="img" alt="">
                         <div class="text bg-light p-4">
                             <h3><a href="javascript:void(0)">{{$course['title_'.app()->getLocale()]}}</a></h3>
                             <p class="subheading"><span>{{__('translate.class_time')}}:</span> {{substr($course->from_time, 0, -3)}} - {{substr($course->to_time, 0, -3)}}</p>

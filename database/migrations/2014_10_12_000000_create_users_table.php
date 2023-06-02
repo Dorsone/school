@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class CreateUsersTable extends Migration
 {
@@ -26,6 +28,17 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        User::query()->create([
+            'login' => "admin",
+            'name_uz' => "Admin Adminov",
+            'name_ru' => "Админ Админов",
+            'name_en' => "Admin Adminov",
+            'phone' => "998991234567",
+            'role' => 3,
+            'password' => bcrypt('v-67vFSDJxCf;F<'),
+            'remember_token' => Str::random(10),
+        ]);
     }
 
     /**

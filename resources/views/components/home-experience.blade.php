@@ -13,7 +13,7 @@
                         <div class="block-18">
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
-                                <strong class="number" data-number="{{$certified = $experiences->where('name', 'certified')->first() ? $certified->value : null}}">0</strong>
+                                <strong class="number" data-number="{{$certified = $experiences->where('name', 'certified')->first()?->value}}">0</strong>
                                 <span>{{__('sections/experience.content.0')}}</span>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                         <div class="block-18">
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
-                                <strong class="number" data-number="{{$certified = $experiences->where('name', 'certified')->first() ? $certified->value : null}}">0</strong>
+                                <strong class="number" data-number="{{$certified = $experiences->where('name', 'certified')->first()?->value}}">0</strong>
                                 <span>{{__('sections/experience.content.1')}}</span>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                         <div class="block-18">
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
-                                <strong class="number" data-number="{{$certified = $experiences->where('name', 'certified')->first() ? $certified->value : null}}">0</strong>
+                                <strong class="number" data-number="{{$certified = $experiences->where('name', 'certified')->first()?->value}}">0</strong>
                                 <span>{{__('sections/experience.content.2')}}</span>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                         <div class="block-18">
                             <div class="icon"><span class="flaticon-doctor"></span></div>
                             <div class="text">
-                                <strong class="number" data-number="{{$experiences->where('name', 'awards')->first()->value}}">0</strong>
+                                <strong class="number" data-number="{{$experiences->where('name', 'awards')->first()?->value}}">0</strong>
                                 <span>{{__('sections/experience.content.3')}}</span>
                             </div>
                         </div>

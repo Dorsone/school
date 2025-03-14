@@ -34,7 +34,7 @@ class ContactController extends Controller
 
     /**
      * @param MessageRequest $messageRequest
-     * @return void
+     * @return 
      */
     public function storeMessage(MessageRequest $messageRequest)
     {

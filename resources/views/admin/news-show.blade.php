@@ -93,8 +93,12 @@
                 <div class="row">
                     <div class="form-group col-md">
                         <label for="image">Yangilik rasmi</label>
-                        <img class="form-control h-auto w-auto" id="image" src="{{$article->getFirstMedia()->getUrl()}}" alt="photo">
-                    </div>
+                        @if ($article->getFirstMedia())
+                            <img class="form-control h-auto w-auto" id="image" src="{{$article->getFirstMedia()->getUrl()}}" alt="photo">
+                        @else
+                            <p>No image available</p> <!-- Agar rasm bo'lmasa, bu xabar ko'rsatiladi -->
+                        @endif
+                        </div>
                 </div>
             </div>
             <div class="card-footer">

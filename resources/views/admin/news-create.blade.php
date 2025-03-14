@@ -27,7 +27,7 @@
                         <div class="form-group col-md-6">
                             <label for="customFile">Rasmni yuklang</label>
                             <div class="custom-file">
-                                <input accept="image/png, image/jpg, image/jpeg" name="image" type="file" class="custom-file-input @error('image') is-invalid @enderror" id="customFile">
+                                <input accept="image/png, image/jpg" name="image[]" type="file" multiple class="custom-file-input @error('image') is-invalid @enderror" id="customFile">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                 @error('image')
                                 <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>

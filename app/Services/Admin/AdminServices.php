@@ -25,7 +25,7 @@ class AdminServices
     public function index(): array
     {
         return [
-            'reviews' => Reviews::count(),
+            'reviews' => Reviews::count(), 
             'teachers' => Teacher::count(),
             'students' => Student::count(),
             'messages' => Message::count(),
@@ -153,8 +153,18 @@ class AdminServices
         $validated += ['user_id' => auth()->user()->id];
 
         $article = Article::query()->create($validated);
+        
+        if(isset($validated['image']) && is_array($validated['image'])){
 
-        app(SpatieMediaService::class)->uploadImageFormRequest($article, $validated['image']);
+            foreach($validated['image'] as $image){
+                app(SpatieMediaService::class)->uploadImageFormRequest($article, $image);
+            }
+        }
+        // else{
+        //     app(SpatieMediaService::class)->uploadImageFormRequest($article, $validated['image']);
+
+        dd($validated);
+        // }
 
         return $article;
     }
@@ -163,7 +173,9 @@ class AdminServices
     {
         if(isset($validated['image']))
         {
-            $model->getFirstMedia()->delete();
+            if(($model->getFirstMedia())){
+                $model->getFirstMedia()->delete();
+            }
             app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);
         }
         $model->update($validated);

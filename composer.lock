@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37359d7c5a9754c93a4fc3e9ee1ade6f",
+    "content-hash": "904420d11b4acbe24e5c39b61b6a338c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3535,16 +3535,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "9.12.3",
+            "version": "9.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "a20456679f29a725b37947980408fc15c3477b08"
+                "reference": "4763bd27ccaf08da80102019fc98c39431640c4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/a20456679f29a725b37947980408fc15c3477b08",
-                "reference": "a20456679f29a725b37947980408fc15c3477b08",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/4763bd27ccaf08da80102019fc98c39431640c4f",
+                "reference": "4763bd27ccaf08da80102019fc98c39431640c4f",
                 "shasum": ""
             },
             "require": {
@@ -3626,7 +3626,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.12.3"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.12.4"
             },
             "funding": [
                 {
@@ -3638,7 +3638,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-07T22:29:32+00:00"
+            "time": "2022-11-09T20:34:04+00:00"
         },
         {
             "name": "spatie/temporary-directory",

@@ -14,11 +14,7 @@ class User extends Authenticatable
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'login',
-        'name_uz',
-        'name_ru', 'name_en',
-        'phone', 'password',
-        'role', 'remember_token',
+    protected $guarded = [
+        'id'
     ];
 }

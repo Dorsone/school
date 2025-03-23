@@ -12,6 +12,7 @@ use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
 use App\Services\SpatieMediaService;
+use Artisan;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
@@ -25,7 +26,7 @@ class AdminServices
     public function index(): array
     {
         return [
-            'reviews' => Reviews::count(), 
+            'reviews' => Reviews::count(),
             'teachers' => Teacher::count(),
             'students' => Student::count(),
             'messages' => Message::count(),
@@ -57,8 +58,7 @@ class AdminServices
 
     public function teacherUpdate(Model $model, array $validated): Model
     {
-        if (isset($validated['image']))
-        {
+        if (isset($validated['image'])) {
             $model->getFirstMedia()->delete();
             app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);
         }
@@ -68,7 +68,6 @@ class AdminServices
 
     /**
      * @param $validated
-     * @return Teacher
      */
     public function teacherStore($validated): Teacher
     {
@@ -86,7 +85,7 @@ class AdminServices
     public function students(): array
     {
         return [
-            'students' => Student::query()->with('level')->paginate(20),
+            'students' => Student::query()->with('level')->paginate(perPage: 20),
         ];
     }
 
@@ -150,30 +149,30 @@ class AdminServices
 
     public function newsStore($validated)
     {
+
         $validated += ['user_id' => auth()->user()->id];
 
-        $article = Article::query()->create($validated);
+        $images = $validated['images'];
+        unset($validated['images']);
         
-        if(isset($validated['image']) && is_array($validated['image'])){
+        $article = Article::query()->create($validated);
+     
 
-            foreach($validated['image'] as $image){
-                app(SpatieMediaService::class)->uploadImageFormRequest($article, $image);
-            }
+        foreach ($images as $image) {
+            app(SpatieMediaService::class)->uploadImageFormRequest($article, $image);
+
         }
-        // else{
-        //     app(SpatieMediaService::class)->uploadImageFormRequest($article, $validated['image']);
 
-        dd($validated);
-        // }
+        // dd($validated);
+
 
         return $article;
     }
 
     public function newsUpdate(array $validated, Article $model)
     {
-        if(isset($validated['image']))
-        {
-            if(($model->getFirstMedia())){
+        if (isset($validated['image'])) {
+            if (($model->getFirstMedia())) {
                 $model->getFirstMedia()->delete();
             }
             app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);

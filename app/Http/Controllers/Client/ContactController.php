@@ -29,6 +29,10 @@ class ContactController extends Controller
      */
     public function index()
     {
+        $contact = Contact::create([
+            'title_uz' => 'Contact1'
+        ]);
+
         return view('client.contact');
     }
 

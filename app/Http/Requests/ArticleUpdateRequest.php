@@ -24,7 +24,8 @@ class ArticleUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => ['mimes:png,jpg,jpeg', 'max:5120'],
+            'images' => ['array'],
+            'images.*' => ['mimes:png,jpg,jpeg', 'max:5120'],
             'title_uz' => ['required', 'string'],
             'content_uz' => ['required', 'string'],
             'title_ru' => ['required', 'string'],

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Level extends SoftDeleting
 {
     use HasFactory;
-    protected $fillable  = ['id','namex' ];
+    protected $guarded = ['id'];
 
     public function teacher(): HasOne
     {

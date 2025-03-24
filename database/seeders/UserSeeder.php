@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::query()->create([
-            'login' => "ozod",
+            'login' => "admin",
             'name_uz' => "Admin Adminov",
             'name_ru' => "Админ Админов",
             'name_en' => "Admin Adminov",

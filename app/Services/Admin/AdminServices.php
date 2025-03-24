@@ -154,9 +154,9 @@ class AdminServices
 
         $images = $validated['images'];
         unset($validated['images']);
-        
+
         $article = Article::query()->create($validated);
-     
+
 
         foreach ($images as $image) {
             app(SpatieMediaService::class)->uploadImageFormRequest($article, $image);
@@ -169,13 +169,22 @@ class AdminServices
         return $article;
     }
 
-    public function newsUpdate(array $validated, Article $model)
+    public function newsUpdate($validated, Article $model)
     {
-        if (isset($validated['image'])) {
-            if (($model->getFirstMedia())) {
-                $model->getFirstMedia()->delete();
+        // dd($model->toArray());
+        $images = $validated['images'];
+        unset($validated['images']);
+
+        if (isset($images)) {
+            if (($model->getMedia())) {
+                foreach ($model->getMedia() as $images) {
+                    $images->delete();
+                }
             }
-            app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);
+            // dd($validated);
+            foreach ($images as $image) {
+                app(SpatieMediaService::class)->uploadImageFormRequest($model, $image);
+            }
         }
         $model->update($validated);
         return $model;

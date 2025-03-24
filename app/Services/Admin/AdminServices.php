@@ -171,21 +171,21 @@ class AdminServices
 
     public function newsUpdate(array $validated, Article $model)
     {
-        $image = $validated['images'];
+        $image = $validated['images'] ?? [];
         unset($validated['images']);
-
-        if (isset($image)) {
+        
+        if(isset($image)) {
             if (($model->getMedia())) {
                 foreach ($model->getMedia() as $images) {
                     $images->delete();
                 }
             }
             // dd($validated);
-            foreach ($images as $image) {
-                app(SpatieMediaService::class)->uploadImageFormRequest($model, $image);
+            foreach ($image as $images) {
+                app(SpatieMediaService::class)->uploadImageFormRequest($model, $images);
             }
         }
-        $model->update($validated);
+        $model->update($validated); 
         return $model;
     }
 

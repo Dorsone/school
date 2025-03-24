@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
              // UserSeeder::class,
-            ArticleSeeder::class,
-            TeacherSeeder::class,
-            LevelSeeder::class,
-            CourseSeeder::class,
-            StudentSeeder::class,
-            ReviewsSeeder::class,
+            // ArticleSeeder::class,
+            // TeacherSeeder::class,
+            // LevelSeeder::class,
+            // CourseSeeder::class,
+            // StudentSeeder::class,
+            // ReviewsSeeder::class,
             SettingSeeder::class,
-            MessageSeeder::class,
+            // MessageSeeder::class,
         ]);
     }
 }

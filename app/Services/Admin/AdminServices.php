@@ -195,7 +195,7 @@ class AdminServices
     public function settings(): array
     {
         return [
-            'settings' => Setting::query()->paginate(10),
+            'settings' => Setting::query()->paginate(perPage: 10),
         ];
     }
 

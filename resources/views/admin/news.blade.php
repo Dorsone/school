@@ -15,7 +15,7 @@
     <li class="breadcrumb-item active">Yangiliklar</li>
 @endsection
 
-@section('table-header')
+@section(section: 'table-header')
     <th>ID</th>
     <th>Sarlavha</th>
     <th>Muallif</th>

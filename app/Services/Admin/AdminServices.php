@@ -12,6 +12,7 @@ use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
 use App\Services\SpatieMediaService;
+use Artisan;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Cache;
@@ -57,8 +58,7 @@ class AdminServices
 
     public function teacherUpdate(Model $model, array $validated): Model
     {
-        if (isset($validated['image']))
-        {
+        if (isset($validated['image'])) {
             $model->getFirstMedia()->delete();
             app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);
         }
@@ -68,7 +68,6 @@ class AdminServices
 
     /**
      * @param $validated
-     * @return Teacher
      */
     public function teacherStore($validated): Teacher
     {
@@ -86,7 +85,7 @@ class AdminServices
     public function students(): array
     {
         return [
-            'students' => Student::query()->with('level')->paginate(20),
+            'students' => Student::query()->with('level')->paginate(perPage: 20),
         ];
     }
 
@@ -150,23 +149,43 @@ class AdminServices
 
     public function newsStore($validated)
     {
+
         $validated += ['user_id' => auth()->user()->id];
+
+        $images = $validated['images'];
+        unset($validated['images']);
 
         $article = Article::query()->create($validated);
 
-        app(SpatieMediaService::class)->uploadImageFormRequest($article, $validated['image']);
+
+        foreach ($images as $image) {
+            app(SpatieMediaService::class)->uploadImageFormRequest($article, $image);
+
+        }
+
+        // dd($validated);
+
 
         return $article;
     }
 
     public function newsUpdate(array $validated, Article $model)
     {
-        if(isset($validated['image']))
-        {
-            $model->getFirstMedia()->delete();
-            app(SpatieMediaService::class)->uploadImageFormRequest($model, $validated['image']);
+        $image = $validated['images'] ?? [];
+        unset($validated['images']);
+        
+        if(isset($image)) {
+            if (($model->getMedia())) {
+                foreach ($model->getMedia() as $images) {
+                    $images->delete();
+                }
+            }
+            // dd($validated);
+            foreach ($image as $images) {
+                app(SpatieMediaService::class)->uploadImageFormRequest($model, $images);
+            }
         }
-        $model->update($validated);
+        $model->update($validated); 
         return $model;
     }
 
@@ -176,7 +195,7 @@ class AdminServices
     public function settings(): array
     {
         return [
-            'settings' => Setting::query()->paginate(10),
+            'settings' => Setting::query()->paginate(perPage: 10),
         ];
     }
 

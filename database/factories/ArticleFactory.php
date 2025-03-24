@@ -29,7 +29,6 @@ class ArticleFactory extends Factory
             'title_preview_en' => $this->faker->text(50),
             'content_preview_en' => $this->faker->text(80),
             'user_id' => $user->id,
-            'image' => $this->faker->imageUrl(),
         ];
     }
 }

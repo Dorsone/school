@@ -24,7 +24,7 @@
                                     <span class="mos">{{__('translate.'.$article->created_at->format('F'))}}</span>
                                     <span class="yr">{{$article->created_at->format('Y')}}</span>
                                 </div>
-                            </a>
+                            </a>    
                             <div class="text bg-white p-4">
                                 <h3 class="heading"><a href="{{route('blog.show', $article->id)}}">{{$article['title_preview_'.app()->getLocale()]}}</a></h3>
                                 <p style="min-height: 10px">{{$article['content_preview_'.app()->getLocale()]}}</p>

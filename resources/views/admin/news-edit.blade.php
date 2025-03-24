@@ -28,7 +28,7 @@
                         <div class="form-group col-md-6">
                             <label for="customFile">Rasmni o'zgartirish</label>
                             <div class="custom-file">
-                                <input accept="image/png, image/jpg, image/jpeg" name="image" type="file" class="custom-file-input @error('image') is-invalid @enderror" id="customFile">
+                                <input accept="image/png, image/jpg, image/jpeg" name="images[]" type="file" class="custom-file-input @error('image') is-invalid @enderror" id="customFile" multiple>
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                 @error('image')
                                 <span id="password_confirmation-error" class="error invalid-feedback">{{__($message)}}</span>
@@ -96,6 +96,19 @@
                             <input name="content_preview_en" type="text" id="content_preview_en" value="{{$article->content_preview_en}}" class="form-control">
                         </div>
                     </div>
+                     <div class="row">
+                    <div class="form-group col-md">
+                        <label for="image">Yangilik rasmi</label>
+                        @if ($article->getMedia()->isNotEmpty())
+                            @foreach ($article->getMedia() as $media)
+                                <img class="form-control h-auto w-auto" src="{{ $media->getUrl() }}" alt="photo"
+                                    style="width: 10px; height:10px" id="image" name="images">
+                            @endforeach
+                        @else
+                            <p>No image available</p> <!-- Agar rasm bo'lmasa, bu xabar ko'rsatiladi -->
+                        @endif
+                    </div>
+                </div>
                     <button type="submit" class="btn btn-success float-right">O'zgartirish</button>
                 </form>
             </div>

@@ -169,13 +169,12 @@ class AdminServices
         return $article;
     }
 
-    public function newsUpdate($validated, Article $model)
+    public function newsUpdate(array $validated, Article $model)
     {
-        // dd($model->toArray());
-        $images = $validated['images'];
+        $image = $validated['images'];
         unset($validated['images']);
 
-        if (isset($images)) {
+        if (isset($image)) {
             if (($model->getMedia())) {
                 foreach ($model->getMedia() as $images) {
                     $images->delete();

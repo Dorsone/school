@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'name_uz' => "Admin Adminov",
             'name_ru' => "Админ Админов",
             'name_en' => "Admin Adminov",
-            'phone' => "9981991234567",
+            'phone' => "998991234567",
             'role' => 3,
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),

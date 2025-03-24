@@ -78,7 +78,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('levels', LevelsController::class);
 
         Route::group([
-            'prefix' => '`lessons`',
+            'prefix' => 'lessons',
             'as' => 'lessons.',
         ], function (){
             Route::get('', [LessonsController::class, 'index'])->name('index');
